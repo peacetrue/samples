@@ -30,11 +30,10 @@ allprojects { project ->
     }
 
     apply plugin: "io.spring.dependency-management"
-    apply plugin: 'org.springframework.boot'
     dependencyManagement {
         imports {
             mavenBom "com.github.peacetrue:peacetrue-dependencies:2.0.0-SNAPSHOT"
-            mavenBom 'org.apache.lucene:lucene-parent:8.8.0'
+            mavenBom 'org.apache.lucene:lucene-parent:8.2.0'
         }
     }
 
@@ -48,6 +47,8 @@ allprojects { project ->
         implementation 'org.apache.lucene:lucene-analyzers-smartcn'
         implementation 'org.apache.lucene:lucene-highlighter'
         implementation 'org.apache.lucene:lucene-memory'
+//        implementation 'org.wltea.ik-analyzer:ik-analyzer:3.2.0'
+        implementation 'com.github.magese:ik-analyzer:8.3.1'
         implementation "com.github.peacetrue:peacetrue-core"
 
         testImplementation 'org.junit.jupiter:junit-jupiter-api'
