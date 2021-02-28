@@ -1,0 +1,9 @@
+name: samples
+title: 各种场景下的样章
+version: master
+asciidoc:
+  attributes:
+    numbered: ''
+start_page: ROOT:index.adoc
+nav:
+  - modules/ROOT/nav.adoc

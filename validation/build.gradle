@@ -1,0 +1,71 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        maven { url 'https://repo.spring.io/plugins-release' }
+        maven { url 'https://plugins.gradle.org/m2/' }
+    }
+
+    dependencies {
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:2.3.3.RELEASE"
+    }
+}
+
+allprojects { project ->
+
+    group "com.github.peacetrue.samples.validation"
+    version "1.0.0-SNAPSHOT"
+    description "spring 对 bean 的验证"
+
+    apply plugin: "java"
+    apply plugin: "java-library"
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        maven { url "https://repo.spring.io/plugins-release" }
+    }
+
+    apply plugin: "io.spring.dependency-management"
+    apply plugin: 'org.springframework.boot'
+    dependencyManagement {
+        imports {
+            mavenBom "com.github.peacetrue:peacetrue-dependencies:2.0.0-SNAPSHOT"
+        }
+    }
+
+    dependencies {
+        compileOnly "org.projectlombok:lombok"
+        annotationProcessor "org.projectlombok:lombok"
+        implementation "com.google.code.findbugs:jsr305"
+        implementation 'org.springframework.boot:spring-boot-starter-webflux'
+        implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+        testImplementation 'org.junit.jupiter:junit-jupiter-api'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+        testImplementation('org.springframework.boot:spring-boot-starter-test') {
+            exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+        }
+
+        testCompileOnly "org.projectlombok:lombok"
+        testAnnotationProcessor "org.projectlombok:lombok"
+        testImplementation "ch.qos.logback:logback-classic"
+        testImplementation 'io.projectreactor:reactor-test'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        testImplementation 'org.unitils:unitils-core'
+        testImplementation 'org.jeasy:easy-random-core'
+        testImplementation 'org.yaml:snakeyaml'
+        testImplementation 'org.jeasy:easy-random-bean-validation', {
+            exclude('group': 'org.yaml')
+        }
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+
+
+}

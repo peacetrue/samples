@@ -1,0 +1,13 @@
+= 样章
+xiayx <xiayouxue@hotmail.com>
+v1.0, 2020-12-29: SNAPSHOT
+:doctype: docbook
+:toc: left
+:numbered:
+:imagesdir: docs/assets/images
+:sourcedir: src/main/java
+:resourcesdir: src/main/resources
+:testsourcedir: src/test/java
+:source-highlighter: highlightjs
+
+详情参考 https://peacetrue.cn/summarize/samples/index.html[安宁的博客^]。
