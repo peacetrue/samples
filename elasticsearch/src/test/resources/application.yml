@@ -1,0 +1,29 @@
+spring:
+  data:
+    elasticsearch:
+      client:
+        reactive:
+          endpoints:
+            - elasticsearch-node01:9200
+            - elasticsearch-node02:9200
+            - elasticsearch-node03:9200
+
+  elasticsearch:
+    rest:
+      uris:
+        - elasticsearch-node01:9200
+        - elasticsearch-node02:9200
+        - elasticsearch-node03:9200
+
+#debug: true
+logging:
+  level:
+    tracer: trace
+
+management:
+  endpoints:
+    enabled-by-default: false
+
+  endpoint:
+    info:
+      enabled: true

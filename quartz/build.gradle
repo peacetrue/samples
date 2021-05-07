@@ -8,8 +8,8 @@ buildscript {
     }
 
     dependencies {
-        classpath "io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE"
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:2.3.3.RELEASE"
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.11.RELEASE"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:2.4.5"
     }
 }
 
@@ -43,6 +43,7 @@ allprojects { project ->
         implementation "com.google.code.findbugs:jsr305"
         implementation "org.quartz-scheduler:quartz:2.3.2"
         implementation 'com.mchange:c3p0:0.9.5.5'
+        implementation 'mysql:mysql-connector-java'
 
         testImplementation 'org.junit.jupiter:junit-jupiter-api'
         testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'

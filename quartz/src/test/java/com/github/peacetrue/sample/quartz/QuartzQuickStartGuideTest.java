@@ -2,14 +2,13 @@ package com.github.peacetrue.sample.quartz;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import org.quartz.*;
+import org.quartz.JobDetail;
+import org.quartz.Scheduler;
+import org.quartz.SchedulerException;
+import org.quartz.Trigger;
 import org.quartz.impl.StdSchedulerFactory;
 
 import java.util.Date;
-
-import static org.quartz.JobBuilder.newJob;
-import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
-import static org.quartz.TriggerBuilder.newTrigger;
 
 /**
  * http://www.quartz-scheduler.org/documentation/quartz-2.3.0/quick-start.html
@@ -65,21 +64,13 @@ public class QuartzQuickStartGuideTest {
     public static Date scheduleJob(Scheduler scheduler) throws SchedulerException {
 
         // define the job and tie it to our HelloJob class
-        JobDetail job = newJob(HelloJob.class)
-                .withIdentity("job1", "group1")
-                .build();
+        JobDetail job = QuartzUtils.helloJob();
 
-        // Trigger the job to run now, and then repeat every 40 seconds
-        Trigger trigger = newTrigger()
-                .withIdentity("trigger1", "group1")
-                .startNow()
-                .withSchedule(simpleSchedule()
-                        .withIntervalInSeconds(5)
-                        .repeatForever())
-                .build();
+        Trigger trigger = QuartzUtils.simpleTrigger();
 
         // Tell quartz to schedule the job using our trigger
         return scheduler.scheduleJob(job, trigger);
 
     }
+
 }

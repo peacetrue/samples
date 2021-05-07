@@ -1,0 +1,40 @@
+{
+  "mappings": {
+    "properties": {
+      "_class": {
+        "type": "keyword",
+        "store": true
+      },
+      "id": {
+        "type": "keyword",
+        "index": true
+      },
+      "username": {
+        "store": true,
+        "type": "keyword"
+      },
+      "password": {
+        "store": true,
+        "type": "keyword"
+      },
+      "creatorId": {
+        "store": true,
+        "type": "long"
+      },
+      "createdTime": {
+        "store": true,
+        "type": "date",
+        "format": "basic_date_time"
+      },
+      "modifierId": {
+        "store": true,
+        "type": "long"
+      },
+      "modifiedTime": {
+        "store": true,
+        "type": "date",
+        "format": "basic_date_time"
+      }
+    }
+  }
+}

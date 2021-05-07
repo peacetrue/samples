@@ -1,0 +1,72 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        maven { url 'https://repo.spring.io/plugins-release' }
+        maven { url 'https://plugins.gradle.org/m2/' }
+    }
+
+    dependencies {
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.11.RELEASE"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:2.4.5"
+    }
+}
+
+allprojects { project ->
+
+    group "com.github.peacetrue.samples.hive"
+    version "1.0.0-SNAPSHOT"
+    description "hive"
+
+    apply plugin: "java"
+    apply plugin: "java-library"
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        maven { url "https://repo.spring.io/plugins-release" }
+    }
+
+    apply plugin: "io.spring.dependency-management"
+    apply plugin: 'org.springframework.boot'
+    dependencyManagement {
+        imports {
+            mavenBom "com.github.peacetrue:peacetrue-dependencies:2.0.0-SNAPSHOT"
+            mavenBom 'org.apache.hive:hive:3.1.2'
+        }
+    }
+
+    dependencies {
+        compileOnly "org.projectlombok:lombok"
+        annotationProcessor "org.projectlombok:lombok"
+        implementation "com.google.code.findbugs:jsr305"
+        implementation 'org.apache.hive:hive-jdbc:3.1.2'
+
+        testImplementation 'org.junit.jupiter:junit-jupiter-api'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+        testImplementation('org.springframework.boot:spring-boot-starter-test') {
+            exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+        }
+
+        testCompileOnly "org.projectlombok:lombok"
+        testAnnotationProcessor "org.projectlombok:lombok"
+        testImplementation "ch.qos.logback:logback-classic"
+        testImplementation 'io.projectreactor:reactor-test'
+        testImplementation 'org.springframework:spring-web'
+        testImplementation 'org.springframework.boot:spring-boot-starter-webflux'
+        testImplementation 'org.unitils:unitils-core'
+        testImplementation 'org.jeasy:easy-random-core'
+        testImplementation 'org.yaml:snakeyaml'
+        testImplementation 'org.jeasy:easy-random-bean-validation', {
+            exclude('group': 'org.yaml')
+        }
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+
+
+}

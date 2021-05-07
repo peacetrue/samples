@@ -25,7 +25,7 @@ import java.nio.file.Paths;
 public class HadoopTest {
 
     static {
-        System.setProperty("hadoop.home.dir", "/Users/xiayx/Documents/Projects/samples/docs/antora/modules/ROOT/attachment/hadoop-3.1.4");
+//        System.setProperty("hadoop.home.dir", "/Users/xiayx/Documents/Projects/samples/docs/antora/modules/ROOT/attachment/hadoop-3.1.4");
     }
 
     public static final String LOCATION = "hdfs://hadoop-node01:9000";
@@ -67,6 +67,12 @@ public class HadoopTest {
     }
 
     @Test
+    void mkdir() throws Exception {
+        FileSystem fileSystem = getFileSystem();
+        fileSystem.mkdirs(new Path("/peacetrue/hadoop"));
+    }
+
+    @Test
     void create() throws Exception {
         log.info("上传文件");
 
@@ -96,8 +102,4 @@ public class HadoopTest {
     }
 
 
-    @Test
-    void name() {
-
-    }
 }

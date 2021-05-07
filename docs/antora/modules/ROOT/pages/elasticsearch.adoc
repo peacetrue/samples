@@ -1,0 +1,60 @@
+= elasticsearch
+
+== 索引文件
+
+[source%nowrap,shell]
+----
+$ curl -X PUT "elasticsearch-node01:9200/customer/_doc/1?pretty" -H 'Content-Type: application/json' -d'
+{
+  "name": "John Doe"
+}
+'
+----
+
+[source%nowrap,json]
+----
+{
+  "_index" : "customer",
+  "_type" : "_doc",
+  "_id" : "1",
+  "_version" : 1,
+  "result" : "created",
+  "_shards" : {
+    "total" : 2,
+    "successful" : 2,
+    "failed" : 0
+  },
+  "_seq_no" : 0,
+  "_primary_term" : 1
+}
+----
+
+== 获取索引
+
+[source%nowrap,shell]
+----
+$ curl -X GET "elasticsearch-node01:9200/customer/_doc/1?pretty"
+----
+
+[source%nowrap,json]
+----
+{
+  "_index" : "customer",
+  "_type" : "_doc",
+  "_id" : "1",
+  "_version" : 1,
+  "_seq_no" : 0,
+  "_primary_term" : 1,
+  "found" : true,
+  "_source" : {
+    "name" : "John Doe"
+  }
+}
+----
+
+== 批量索引
+
+----
+{ “ account_number” ：0 ，“ balance” ：16623 ，“ firstname” ：“ Bradshaw” ，“ lastname” ：“ Mckenzie” ，“ age” ：29 ，“ gender” ：“ F” ，“ address” ：“ 244哥伦布地点” ，“雇主” ：“欧洲” ，“电子邮件” ：“ bradshawmckenzie@euron.com” ，“城市” ：“霍巴肯” ，“ state” ：“ CO” }
+
+----

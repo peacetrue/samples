@@ -8,8 +8,8 @@ buildscript {
     }
 
     dependencies {
-        classpath "io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE"
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:2.3.3.RELEASE"
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.11.RELEASE"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:2.4.5"
     }
 }
 
@@ -47,6 +47,7 @@ dependencies {
     implementation 'org.apache.hadoop:hadoop-hdfs:3.2.2'
     implementation 'org.apache.hadoop:hadoop-yarn:3.2.2'
     implementation 'org.apache.hadoop:hadoop-mapreduce-client-core:3.2.2'
+    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
