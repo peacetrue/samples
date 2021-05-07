@@ -34,5 +34,6 @@ hs_err_pid*
 docs/antora/modules/ROOT/attachment
 
 # Project exclude paths
-/mybatis-plus/target/
-/sonar/target/
+**/target
+**/nacos
+**/build
