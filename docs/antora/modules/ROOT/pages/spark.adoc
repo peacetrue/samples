@@ -1,0 +1,11 @@
+= spark
+
+流式计算框架。
+
+== 参考教程
+
+* https://www.bilibili.com/video/BV11A411L7CK?p=12&spm_id_from=pageDriver[尚硅谷2021迎新版大数据Spark从入门到精通^]
+
+== 统计单词数量
+
+image::spark/image-2021-05-09-07-52-12-329.png[]
