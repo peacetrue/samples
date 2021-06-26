@@ -1,9 +1,11 @@
 name: samples
-title: 各种场景下的样章
+title: 样章
 version: master
 asciidoc:
   attributes:
-    numbered: ''
+    numbered: '@'
+    sourcedir: 'src/main/java@'
+    testsourcedir: 'src/test/java@'
 start_page: ROOT:index.adoc
 nav:
   - modules/ROOT/nav.adoc

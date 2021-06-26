@@ -1,15 +1,12 @@
 buildscript {
     repositories {
         mavenLocal()
-        mavenCentral()
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-        maven { url 'https://repo.spring.io/plugins-release' }
-        maven { url 'https://plugins.gradle.org/m2/' }
+        maven { url "https://maven.aliyun.com/repository/gradle-plugin" }
     }
 
     dependencies {
         classpath "io.spring.gradle:dependency-management-plugin:1.0.11.RELEASE"
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:2.4.5"
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.4.5")
     }
 }
 
@@ -24,9 +21,8 @@ allprojects { project ->
 
     repositories {
         mavenLocal()
-        mavenCentral()
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-        maven { url "https://repo.spring.io/plugins-release" }
+        maven { url "https://maven.aliyun.com/repository/public" }
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     }
 
     apply plugin: "io.spring.dependency-management"

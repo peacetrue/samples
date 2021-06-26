@@ -2,10 +2,98 @@
 
 流式计算框架。
 
+== 软件版本
+
+* scala：2.12.11
+* spark：spark-core_2.12:3.1.1
+* hadoop：3.2
+
 == 参考教程
 
+* https://spark.apache.org/[官网^]
 * https://www.bilibili.com/video/BV11A411L7CK?p=12&spm_id_from=pageDriver[尚硅谷2021迎新版大数据Spark从入门到精通^]
 
 == 统计单词数量
 
 image::spark/image-2021-05-09-07-52-12-329.png[]
+
+== 运行环境
+
+image::spark/image-2021-05-09-10-15-15-444.png[]
+
+=== 本地运行模式
+
+.获取安装包
+[source%nowrap,shell]
+----
+wget https://mirrors.sonic.net/apache/spark/spark-3.1.1/spark-3.1.1-bin-hadoop3.2.tgz
+----
+
+.解压安装包
+[source%nowrap,shell]
+----
+tar -xvf spark-3.1.1-bin-hadoop3.2.tgz
+----
+
+.设置环境变量
+[source%nowrap,shell]
+----
+echo 'export SPARK_HOME=/root/spark-3.1.1-bin-hadoop3.2' >> ~/.bash_profile
+echo 'export PATH=$PATH:$SPARK_HOME/bin' >> ~/.bash_profile
+source ~/.bash_profile
+----
+
+// 虚拟机容器中下载太慢，本地下载后上传到容器中
+// scp ~/Downloads/spark-3.1.1-bin-hadoop3.2.tgz root@hadoop-node01:/root
+// scp ~/Downloads/spark-3.1.1-bin-hadoop3.2.tgz root@hadoop-node01:/root
+
+.启动服务
+[source%nowrap,shell]
+----
+spark-shell
+----
+
+.spark 控制台
+image::spark/image-2021-05-09-11-09-50-869.png[]
+
+==== 统计单词数量
+
+.准备文件：/root/words.txt
+[source%nowrap,txt]
+----
+Hello Scala
+Hello Spark
+Hello Scala
+Hello Spark
+----
+
+.在 spark 控制台执行统计代码
+[source%nowrap,scala]
+----
+sc.textFile("/root/words.txt").flatMap(_.split(" +")).map((_,1)).reduceByKey(_+_).collect()
+----
+
+==== 提交示例任务
+
+.在 spark 控制台计算 PI
+[source%nowrap,scala]
+----
+spark-submit \
+--class org.apache.spark.examples.SparkPi \
+--master local[2] $SPARK_HOME/examples/jars/spark-examples_2.12-3.1.1.jar \
+10
+----
+
+输出结果： *Pi is roughly 3.1418951418951417*
+
+=== 独立运行模式
+
+略过
+
+=== yarn
+
+
+
+== 问题
+
+

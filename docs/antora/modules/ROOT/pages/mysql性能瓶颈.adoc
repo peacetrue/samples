@@ -1,0 +1,26 @@
+= mysql性能瓶颈
+
+== 环境准备
+
+* 4 核 8 G
+* Centos 8
+
+image::mysql/image-2021-05-07-19-39-41-803.png[]
+
+
+== 客户端测试
+
+[source%nowrap,shell]
+----
+mysql -h101.200.133.86 -uroot -p12345678
+mysql -h101.200.133.86 -uroot -p1qW@1qW@
+
+mysql> select * from college;
+15 rows in set (0.09 sec)
+----
+
+=== 响应数据过多
+
+表中有大量数据，在查询时不设置 limit，返回过多的数据导致查询慢。
+
+=== 复杂的查询
