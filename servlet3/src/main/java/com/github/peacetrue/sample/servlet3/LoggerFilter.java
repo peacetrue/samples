@@ -16,7 +16,7 @@ public class LoggerFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        log.info("初始化: {}", filterConfig);
+        log.info("初始: {}", filterConfig);
     }
 
     @Override

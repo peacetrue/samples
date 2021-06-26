@@ -24,7 +24,7 @@ public class LoggerHttpServlet extends HttpServlet implements Servlet {
 
     @Override
     public void init(ServletConfig config) throws ServletException {
-        log.info("初始化: {}", config);
+        log.info("初始: {}", config);
         super.init(config);
     }
 

@@ -8,11 +8,11 @@ https://search.maven.org/artifact/javax.servlet/servlet-api[javax.servlet:servle
 
 image::servlet/image-2021-06-26-15-41-51-121.png[]
 
-其中，*3.0-alpha-1* 是无效的。
+其中，*3.0-alpha-1* 仍是 2 版本的延续，不支持 3 版本的新特性。
 
 == javax.servlet:javax.servlet-api（3、4系列）
 
-https://search.maven.org/artifact/javax.servlet/javax.servlet-api[javax.servlet:javax.servlet-api^]的版本记录如下：
+https://search.maven.org/artifact/javax.servlet/javax.servlet-api[javax.servlet:javax.servlet-api^] 的版本记录如下：
 
 image::servlet/image-2021-06-26-19-18-10-534.png[]
 
@@ -23,7 +23,7 @@ image::servlet/image-2021-06-26-19-18-10-534.png[]
 The Apache Tomcat® software is an open source implementation of the Jakarta Servlet, Jakarta Server Pages, Jakarta Expression Language, Jakarta WebSocket, Jakarta Annotations and Jakarta Authentication specifications.
 These specifications are part of the Jakarta EE platform.
 
-Java 替换成了 Jakarta， https://search.maven.org/artifact/jakarta.servlet/jakarta.servlet-api[jakarta.servlet:jakarta.servlet-api^]的版本记录如下：
+Java 替换成了 Jakarta， https://search.maven.org/artifact/jakarta.servlet/jakarta.servlet-api[jakarta.servlet:jakarta.servlet-api^] 的版本记录如下：
 
 image::servlet/image-2021-06-26-17-23-11-910.png[]
 
@@ -54,10 +54,6 @@ https://github.com/peacetrue/samples/tree/master/servlet2[servlet2^] 使用 2.4 
 === servlet3（3.1.0）
 
 https://github.com/peacetrue/samples/tree/master/servlet3[servlet3^] 使用 3.1.0 版本的 servlet-api，支持注解和编程创建 `HttpServlet`。
-
-image::servlet/image-2021-06-26-19-43-29-165.png[width=480]
-
-image::servlet/image-2021-06-26-19-45-37-784.png[]
 
 ==== 如何控制 Filter 的顺序
 
