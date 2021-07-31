@@ -24,19 +24,19 @@ image::spark/image-2021-05-09-10-15-15-444.png[]
 === 本地运行模式
 
 .获取安装包
-[source%nowrap,shell]
+[source,shell]
 ----
 wget https://mirrors.sonic.net/apache/spark/spark-3.1.1/spark-3.1.1-bin-hadoop3.2.tgz
 ----
 
 .解压安装包
-[source%nowrap,shell]
+[source,shell]
 ----
 tar -xvf spark-3.1.1-bin-hadoop3.2.tgz
 ----
 
 .设置环境变量
-[source%nowrap,shell]
+[source,shell]
 ----
 echo 'export SPARK_HOME=/root/spark-3.1.1-bin-hadoop3.2' >> ~/.bash_profile
 echo 'export PATH=$PATH:$SPARK_HOME/bin' >> ~/.bash_profile
@@ -48,7 +48,7 @@ source ~/.bash_profile
 // scp ~/Downloads/spark-3.1.1-bin-hadoop3.2.tgz root@hadoop-node01:/root
 
 .启动服务
-[source%nowrap,shell]
+[source,shell]
 ----
 spark-shell
 ----
@@ -59,7 +59,7 @@ image::spark/image-2021-05-09-11-09-50-869.png[]
 ==== 统计单词数量
 
 .准备文件：/root/words.txt
-[source%nowrap,txt]
+[source,txt]
 ----
 Hello Scala
 Hello Spark
@@ -68,7 +68,7 @@ Hello Spark
 ----
 
 .在 spark 控制台执行统计代码
-[source%nowrap,scala]
+[source,scala]
 ----
 sc.textFile("/root/words.txt").flatMap(_.split(" +")).map((_,1)).reduceByKey(_+_).collect()
 ----
@@ -76,7 +76,7 @@ sc.textFile("/root/words.txt").flatMap(_.split(" +")).map((_,1)).reduceByKey(_+_
 ==== 提交示例任务
 
 .在 spark 控制台计算 PI
-[source%nowrap,scala]
+[source,scala]
 ----
 spark-submit \
 --class org.apache.spark.examples.SparkPi \

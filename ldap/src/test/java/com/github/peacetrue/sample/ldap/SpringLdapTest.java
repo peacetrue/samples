@@ -23,7 +23,7 @@ class SpringLdapTest {
 
     @Test
     void basic() {
-        List<String> organizationalRoles = LdapUtils.findOrganizationalRoles(ldapTemplate);
+        List<String> organizationalRoles = LdapUtils.findAllBySpring(ldapTemplate);
         Assertions.assertTrue(organizationalRoles.contains("root"));
     }
 }

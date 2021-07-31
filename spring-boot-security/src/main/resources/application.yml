@@ -1,9 +1,16 @@
 logging:
   level:
     root: info
-    org.springframework: trace
+    org.springframework: debug
+    org.springframework.security: trace
+
 spring:
-  quartz:
-    startup-delay: 1000s
-
-
+  thymeleaf:
+    cache: false
+  security:
+    user:
+      name: admin
+      password: 1
+  application:
+    admin:
+      enabled: true

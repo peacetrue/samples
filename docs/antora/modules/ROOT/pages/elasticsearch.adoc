@@ -2,7 +2,7 @@
 
 == 索引文件
 
-[source%nowrap,shell]
+[source,shell]
 ----
 $ curl -X PUT "elasticsearch-node01:9200/customer/_doc/1?pretty" -H 'Content-Type: application/json' -d'
 {
@@ -11,7 +11,7 @@ $ curl -X PUT "elasticsearch-node01:9200/customer/_doc/1?pretty" -H 'Content-Typ
 '
 ----
 
-[source%nowrap,json]
+[source,json]
 ----
 {
   "_index" : "customer",
@@ -31,12 +31,12 @@ $ curl -X PUT "elasticsearch-node01:9200/customer/_doc/1?pretty" -H 'Content-Typ
 
 == 获取索引
 
-[source%nowrap,shell]
+[source,shell]
 ----
 $ curl -X GET "elasticsearch-node01:9200/customer/_doc/1?pretty"
 ----
 
-[source%nowrap,json]
+[source,json]
 ----
 {
   "_index" : "customer",

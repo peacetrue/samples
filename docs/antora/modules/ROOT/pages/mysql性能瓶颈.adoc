@@ -10,7 +10,7 @@ image::mysql/image-2021-05-07-19-39-41-803.png[]
 
 == 客户端测试
 
-[source%nowrap,shell]
+[source,shell]
 ----
 mysql -h101.200.133.86 -uroot -p12345678
 mysql -h101.200.133.86 -uroot -p1qW@1qW@

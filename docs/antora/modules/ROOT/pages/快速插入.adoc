@@ -9,7 +9,7 @@
 合并语句以减少应用和数据库之间的传输时间。
 
 .常规语句
-[source%nowrap]
+[source]
 ----
 INSERT INTO `table1` (`field1`, `field2`) VALUES ("data1", "data2");
 INSERT INTO `table1` (`field1`, `field2`) VALUES ("data1", "data2");
@@ -19,7 +19,7 @@ INSERT INTO `table1` (`field1`, `field2`) VALUES ("data1", "data2");
 ----
 
 .合并后语句
-[source%nowrap]
+[source]
 ----
 INSERT INTO `table1` (`field1`, `field2`) VALUES ("data1", "data2"),
                                                  ("data1", "data2"),

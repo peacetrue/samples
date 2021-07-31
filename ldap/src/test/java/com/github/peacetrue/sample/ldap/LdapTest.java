@@ -8,6 +8,7 @@ import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.ldap.core.LdapTemplate;
 
+import javax.naming.NamingException;
 import java.util.List;
 
 /**
@@ -20,9 +21,10 @@ class LdapTest {
 
     /** 使用 JDK 自带的目录服务 */
     @Test
-    void jdk() {
-        List<String> organizationalRoles = LdapUtils.findOrganizationalRoles();
-        Assertions.assertTrue(organizationalRoles.contains("root"));
+    void jdk() throws NamingException {
+        List<String> nodes = LdapUtils.findAllByJdk();
+        log.info("nodes: {}", nodes);
+        Assertions.assertTrue(nodes.contains("root"));
     }
 
     /** 使用 Spring 提供的目录服务 */
@@ -32,7 +34,7 @@ class LdapTest {
         XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(beanFactory);
         xmlBeanDefinitionReader.loadBeanDefinitions(new ClassPathResource("/ldap.xml"));
         LdapTemplate ldapTemplate = beanFactory.getBean(LdapTemplate.class);
-        List<String> organizationalRoles = LdapUtils.findOrganizationalRoles(ldapTemplate);
+        List<String> organizationalRoles = LdapUtils.findAllBySpring(ldapTemplate);
         Assertions.assertTrue(organizationalRoles.contains("root"));
     }
 }

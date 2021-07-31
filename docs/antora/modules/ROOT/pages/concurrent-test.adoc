@@ -35,7 +35,7 @@
 
 让我们举个例子。假设我们有一个由每个线程递增的全局计数器。在处理结束时，我们希望此计数器的状态与已执行的线程数完全相同：
 
-[source%nowrap,java]
+[source,java]
 ----
 private int counter;
 public void increment() {

@@ -12,9 +12,9 @@ buildscript {
 
 allprojects { project ->
 
-    group "com.github.peacetrue.samples"
+    group "com.github.peacetrue.samples.spring.boot.security"
     version "1.0.0-SNAPSHOT"
-    description "ldap"
+    description "spring.boot.security"
 
     apply plugin: "java"
     apply plugin: "java-library"
@@ -37,9 +37,8 @@ allprojects { project ->
         compileOnly "org.projectlombok:lombok"
         annotationProcessor "org.projectlombok:lombok"
         implementation "com.google.code.findbugs:jsr305"
-        implementation 'org.springframework.ldap:spring-ldap-core'
-        implementation 'org.apache.commons:commons-lang3'
-        implementation 'org.apache.commons:commons-collections4:4.4'
+        implementation "org.springframework.boot:spring-boot-starter-web"
+        implementation "org.springframework.boot:spring-boot-starter-actuator"
 
         testImplementation 'org.junit.jupiter:junit-jupiter-api'
         testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
@@ -50,14 +49,7 @@ allprojects { project ->
         testCompileOnly "org.projectlombok:lombok"
         testAnnotationProcessor "org.projectlombok:lombok"
         testImplementation "ch.qos.logback:logback-classic"
-        testImplementation 'org.springframework:spring-test'
-//        testImplementation 'org.springframework.ldap:spring-ldap-test'
-//        testImplementation "org.apache.directory.server:apacheds-core:1.5.5",
-//                "org.apache.directory.server:apacheds-core-entry:1.5.5",
-//                "org.apache.directory.server:apacheds-protocol-shared:1.5.5",
-//                "org.apache.directory.server:apacheds-protocol-ldap:1.5.5",
-//                "org.apache.directory.server:apacheds-server-jndi:1.5.5",
-//                "org.apache.directory.shared:shared-ldap:0.9.15"
+        testImplementation 'org.springframework:spring-web'
         testImplementation 'org.unitils:unitils-core'
         testImplementation 'org.jeasy:easy-random-core'
         testImplementation 'org.yaml:snakeyaml'
@@ -69,8 +61,5 @@ allprojects { project ->
     test {
         useJUnitPlatform()
     }
-
-}
-dependencies {
 
 }
