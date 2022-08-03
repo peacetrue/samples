@@ -1,2 +1,3 @@
 * xref:index.adoc[]
-* xref:version.adoc[]
+* 版本
+** xref:version/antora.adoc[]
