@@ -1,0 +1,50 @@
+= NTM 内存分析
+
+使用 Native Memory Tracking (NMT) 分析 JVM 内存。
+
+
+.运行 jar 包
+[source%nowrap,shell]
+----
+[root@10 runnable-jar]# nohup java -XX:NativeMemoryTracking=summary -jar build/libs/runnable-jar-1.0.0-SNAPSHOT-all.jar &
+[root@10 runnable-jar]# nohup java -XX:+UnlockDiagnosticVMOptions -XX:+PrintNMTStatistics -XX:NativeMemoryTracking=detail -jar build/libs/runnable-jar-1.0.0-SNAPSHOT-all.jar &
+----
+
+.查看进程物理内存（79M）
+[source%nowrap,shell]
+----
+top
+04:51:27 up  6:13,  5 users,  load average: 0.02, 0.04, 0.05
+Tasks:   1 total,   0 running,   1 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :  1014756 total,   183740 free,   428504 used,   402512 buff/cache
+KiB Swap:   839676 total,   834036 free,     5640 used.   441108 avail Mem
+
+  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
+ 5729 root      20   0 2299560  79424  14140 S  0.0  7.8   0:01.31 java
+----
+
+.查看可统计物理内存（44M）
+[source%nowrap,shell]
+----
+Memory                            used       total      max         usage      GC
+heap                              18M        27M        239M        7.90%      gc.copy.count                          14
+eden_space                        2M         7M         66M         4.14%      gc.copy.time(ms)                       29
+survivor_space                    959K       960K       8448K       11.36%     gc.marksweepcompact.count              1
+tenured_gen                       15M        18M        165M        9.27%      gc.marksweepcompact.time(ms)           10
+nonheap                           24M        25M        -1          96.84%
+code_cache                        3M         3M         240M        1.50%
+metaspace                         18M        19M        -1          96.37%
+compressed_class_space            2M         2M         1024M       0.22%
+direct                            0K         0K         -           0.00%
+mapped                            0K         0K         -           0.00%
+----
+
+还有 35M 内存不知去向。
+
+.查看可统计物理内存（44M）
+[source%nowrap,shell]
+----
+jcmd 5729 VM.native_memory summary
+/ # jcmd 1 VM.native_memory summary scale=MB
+----

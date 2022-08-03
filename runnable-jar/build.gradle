@@ -1,0 +1,21 @@
+plugins {
+    id("com.github.johnrengelman.shadow") version "6.0.0"
+}
+
+group "com.github.peacetrue"
+version "1.0.0-SNAPSHOT"
+description "可运行的 jar 包"
+
+ext {
+    publishDisabled = true
+}
+
+apply plugin: "java"
+tasks.jar {
+    manifest.attributes["Main-Class"] = "com.github.peacetrue.runnable_jar.Main"
+}
+
+dependencies {
+    implementation "ch.qos.logback:logback-classic:1.2.11"
+    implementation 'org.springframework:spring-web:5.3.17'
+}

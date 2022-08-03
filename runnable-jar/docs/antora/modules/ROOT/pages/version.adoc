@@ -1,0 +1,21 @@
+= 版本说明
+
+:numbered!: ''
+//@formatter:off
+
+== 1.0.0
+
+执行并且阻塞，用于观察内存使用情况。
+
+[source%nowrap,shell]
+----
+[root@10 runnable-jar]# git clone git@github.com:peacetrue/runnable-jar.git
+[root@10 runnable-jar]# cd runnable-jar
+[root@10 runnable-jar]# ./gradlew shadowJar
+[root@10 runnable-jar]# java -jar build/libs/runnable-jar-1.0.0-SNAPSHOT-all.jar
+----
+
+== 1.1.0
+
+使用常规方法，分析 JVM 内存。
+

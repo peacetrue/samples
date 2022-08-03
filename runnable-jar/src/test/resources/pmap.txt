@@ -1,0 +1,129 @@
+5974:   java -XX:NativeMemoryTracking=detail -jar build/libs/runnable-jar-1.0.0-SNAPSHOT-all.jar
+Address           Kbytes     RSS   Dirty Mode  Mapping
+0000000000400000       4       4       0 r-x-- java
+0000000000600000       4       4       4 r---- java
+0000000000601000       4       4       4 rw--- java
+0000000000c01000     132      20      20 rw---   [ anon ]
+00000000f0800000    5440    2048    2048 rw---   [ anon ]
+00000000f0d50000   79168       0       0 -----   [ anon ]
+00000000f5aa0000   10944       0       0 rw---   [ anon ]
+00000000f6550000  158400       0       0 -----   [ anon ]
+0000000100000000     512     368     368 rw---   [ anon ]
+0000000100080000 1048064       0       0 -----   [ anon ]
+00007fb0c8000000     172     124     124 rw---   [ anon ]
+00007fb0c802b000   65364       0       0 -----   [ anon ]
+00007fb0d0000000     412     404     404 rw---   [ anon ]
+00007fb0d0067000   65124       0       0 -----   [ anon ]
+00007fb0d4000000     280     280     280 rw---   [ anon ]
+00007fb0d4046000   65256       0       0 -----   [ anon ]
+00007fb0d8000000     132      16      16 rw---   [ anon ]
+00007fb0d8021000   65404       0       0 -----   [ anon ]
+00007fb0ddabe000  103688      52       0 r---- locale-archive
+00007fb0e4000000     132      28      28 rw---   [ anon ]
+00007fb0e4021000   65404       0       0 -----   [ anon ]
+00007fb0e8000000     132       4       4 rw---   [ anon ]
+00007fb0e8021000   65404       0       0 -----   [ anon ]
+00007fb0ec000000     132       4       4 rw---   [ anon ]
+00007fb0ec021000   65404       0       0 -----   [ anon ]
+00007fb0f0868000    2636    2636    2636 rw---   [ anon ]
+00007fb0f0afb000      12       0       0 -----   [ anon ]
+00007fb0f0afe000    1016      24      24 rw---   [ anon ]
+00007fb0f0bfc000       4       0       0 -----   [ anon ]
+00007fb0f0bfd000    1024      16      16 rw---   [ anon ]
+00007fb0f0cfd000      12       0       0 -----   [ anon ]
+00007fb0f0d00000    1016       8       8 rw---   [ anon ]
+00007fb0f0dfe000      16       0       0 -----   [ anon ]
+00007fb0f0e02000    1012      12      12 rw---   [ anon ]
+00007fb0f0eff000      16       0       0 -----   [ anon ]
+00007fb0f0f03000    1012      24      24 rw---   [ anon ]
+00007fb0f1000000    2496    2048    2048 rwx--   [ anon ]
+00007fb0f1270000  243264       0       0 -----   [ anon ]
+00007fb100000000    1448    1292    1292 rw---   [ anon ]
+00007fb10016a000   64088       0       0 -----   [ anon ]
+00007fb1040dc000     112     112       0 r--s- cldrdata.jar
+00007fb1040f8000      12       0       0 -----   [ anon ]
+00007fb1040fb000    1016      92      92 rw---   [ anon ]
+00007fb1041f9000      12       0       0 -----   [ anon ]
+00007fb1041fc000    1016      88      88 rw---   [ anon ]
+00007fb1042fa000      12       0       0 -----   [ anon ]
+00007fb1042fd000    1016      88      88 rw---   [ anon ]
+00007fb1043fb000       4       0       0 -----   [ anon ]
+00007fb1043fc000    1340     324     324 rw---   [ anon ]
+00007fb10454b000    1896    1896       0 r--s- rt.jar
+00007fb104725000    5188    4968    4968 rw---   [ anon ]
+00007fb104c36000    3840       0       0 -----   [ anon ]
+00007fb104ff6000      40      40      40 rw---   [ anon ]
+00007fb105000000    3800       0       0 -----   [ anon ]
+00007fb1053b6000     104      60       0 r-x-- libzip.so
+00007fb1053d0000    2048       0       0 ----- libzip.so
+00007fb1055d0000       4       4       4 r---- libzip.so
+00007fb1055d1000       4       4       4 rw--- libzip.so
+00007fb1055d2000      48      24       0 r-x-- libnss_files-2.17.so
+00007fb1055de000    2044       0       0 ----- libnss_files-2.17.so
+00007fb1057dd000       4       4       4 r---- libnss_files-2.17.so
+00007fb1057de000       4       4       4 rw--- libnss_files-2.17.so
+00007fb1057df000      24       0       0 rw---   [ anon ]
+00007fb1057e5000     180     124       0 r-x-- libjava.so
+00007fb105812000    2044       0       0 ----- libjava.so
+00007fb105a11000       4       4       4 r---- libjava.so
+00007fb105a12000       8       8       8 rw--- libjava.so
+00007fb105a14000      52      24       0 r-x-- libverify.so
+00007fb105a21000    2044       0       0 ----- libverify.so
+00007fb105c20000       8       8       8 r---- libverify.so
+00007fb105c22000       4       4       4 rw--- libverify.so
+00007fb105c23000      28      16       0 r-x-- librt-2.17.so
+00007fb105c2a000    2044       0       0 ----- librt-2.17.so
+00007fb105e29000       4       4       4 r---- librt-2.17.so
+00007fb105e2a000       4       4       4 rw--- librt-2.17.so
+00007fb105e2b000    1028      68       0 r-x-- libm-2.17.so
+00007fb105f2c000    2044       0       0 ----- libm-2.17.so
+00007fb10612b000       4       4       4 r---- libm-2.17.so
+00007fb10612c000       4       4       4 rw--- libm-2.17.so
+00007fb10612d000   13192    7872       0 r-x-- libjvm.so
+00007fb106e0f000    2048       0       0 ----- libjvm.so
+00007fb10700f000     600     600     600 r---- libjvm.so
+00007fb1070a5000     196     196     196 rw--- libjvm.so
+00007fb1070d6000     236     232     232 rw---   [ anon ]
+00007fb107111000    1808     644       0 r-x-- libc-2.17.so
+00007fb1072d5000    2044       0       0 ----- libc-2.17.so
+00007fb1074d4000      16      16      16 r---- libc-2.17.so
+00007fb1074d8000       8       8       8 rw--- libc-2.17.so
+00007fb1074da000      20      20      20 rw---   [ anon ]
+00007fb1074df000       8       8       0 r-x-- libdl-2.17.so
+00007fb1074e1000    2048       0       0 ----- libdl-2.17.so
+00007fb1076e1000       4       4       4 r---- libdl-2.17.so
+00007fb1076e2000       4       4       4 rw--- libdl-2.17.so
+00007fb1076e3000      92      76       0 r-x-- libjli.so
+00007fb1076fa000    2044       0       0 ----- libjli.so
+00007fb1078f9000       4       4       4 r---- libjli.so
+00007fb1078fa000       4       4       4 rw--- libjli.so
+00007fb1078fb000      92      72       0 r-x-- libpthread-2.17.so
+00007fb107912000    2044       0       0 ----- libpthread-2.17.so
+00007fb107b11000       4       4       4 r---- libpthread-2.17.so
+00007fb107b12000       4       4       4 rw--- libpthread-2.17.so
+00007fb107b13000      16       4       4 rw---   [ anon ]
+00007fb107b17000     136     116       0 r-x-- ld-2.17.so
+00007fb107b49000      40      40       0 r--s- localedata.jar
+00007fb107b53000      24       0       0 rw---   [ anon ]
+00007fb107b59000     308       0       0 -----   [ anon ]
+00007fb107ba6000      12      12      12 rw---   [ anon ]
+00007fb107ba9000     152       0       0 -----   [ anon ]
+00007fb107bcf000      24      24      24 rw---   [ anon ]
+00007fb107bd5000     308       0       0 -----   [ anon ]
+00007fb107c22000       4       4       4 rw---   [ anon ]
+00007fb107c23000      32      32      12 rw-s- 5974
+00007fb107c2b000      16       0       0 -----   [ anon ]
+00007fb107c2f000    1028     120     120 rw---   [ anon ]
+00007fb107d32000       8       8       8 rw---   [ anon ]
+00007fb107d34000       4       4       0 r--s- runnable-jar-1.0.0-SNAPSHOT-all.jar
+00007fb107d35000       4       0       0 rw---   [ anon ]
+00007fb107d36000       4       0       0 r----   [ anon ]
+00007fb107d37000       4       4       4 rw---   [ anon ]
+00007fb107d38000       4       4       4 r---- ld-2.17.so
+00007fb107d39000       4       4       4 rw--- ld-2.17.so
+00007fb107d3a000       4       4       4 rw---   [ anon ]
+00007ffe6937a000     132      36      36 rw---   [ stack ]
+00007ffe693a8000       8       4       0 r-x--   [ anon ]
+ffffffffff600000       4       0       0 r-x--   [ anon ]
+---------------- ------- ------- -------
+total kB         2246076   27588   16352

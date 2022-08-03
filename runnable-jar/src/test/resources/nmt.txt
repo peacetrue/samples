@@ -1,0 +1,700 @@
+5974:
+
+Native Memory Tracking:
+
+Total: reserved=1576574KB, committed=39270KB
+-                 Java Heap (reserved=253952KB, committed=16384KB)
+                            (mmap: reserved=253952KB, committed=16384KB)
+
+-                     Class (reserved=1056896KB, committed=4992KB)
+                            (classes #546)
+                            (malloc=128KB #160)
+                            (mmap: reserved=1056768KB, committed=4864KB)
+
+-                    Thread (reserved=10304KB, committed=10304KB)
+                            (thread #11)
+                            (stack: reserved=10260KB, committed=10260KB)
+                            (malloc=33KB #52)
+                            (arena=12KB #18)
+
+-                      Code (reserved=249638KB, committed=2574KB)
+                            (malloc=38KB #330)
+                            (mmap: reserved=249600KB, committed=2536KB)
+
+-                        GC (reserved=839KB, committed=71KB)
+                            (malloc=7KB #80)
+                            (mmap: reserved=832KB, committed=64KB)
+
+-                  Compiler (reserved=133KB, committed=133KB)
+                            (malloc=3KB #31)
+                            (arena=131KB #5)
+
+-                  Internal (reserved=2898KB, committed=2898KB)
+                            (malloc=2866KB #1425)
+                            (mmap: reserved=32KB, committed=32KB)
+
+-                    Symbol (reserved=1589KB, committed=1589KB)
+                            (malloc=1006KB #401)
+                            (arena=584KB #1)
+
+-    Native Memory Tracking (reserved=150KB, committed=150KB)
+                            (malloc=91KB #1286)
+                            (tracking overhead=60KB)
+
+-               Arena Chunk (reserved=174KB, committed=174KB)
+                            (malloc=174KB)
+
+Virtual memory map:
+
+[0x00000000f0800000 - 0x0000000100000000] reserved 253952KB for Java Heap from
+    [0x00007fb106bf6f24] ReservedHeapSpace::ReservedHeapSpace(unsigned long, unsigned long, bool, char*)+0xb4
+    [0x00007fb106bbec9f] Universe::reserve_heap(unsigned long, unsigned long)+0x38f
+    [0x00007fb1067011f0] GenCollectedHeap::allocate(unsigned long, unsigned long*, int*, ReservedSpace*)+0x180
+    [0x00007fb1067038a3] GenCollectedHeap::initialize()+0x113
+
+	[0x00000000f0800000 - 0x00000000f0d50000] committed 5440KB from
+            [0x00007fb106bf793c] VirtualSpace::initialize(ReservedSpace, unsigned long)+0x20c
+            [0x00007fb106717156] Generation::Generation(ReservedSpace, unsigned long, int)+0x96
+            [0x00007fb106615860] DefNewGeneration::DefNewGeneration(ReservedSpace, unsigned long, int, char const*)+0x30
+            [0x00007fb106718a2d] GenerationSpec::init(ReservedSpace, int, GenRemSet*)+0x36d
+
+	[0x00000000f5aa0000 - 0x00000000f6550000] committed 10944KB from
+            [0x00007fb106bf793c] VirtualSpace::initialize(ReservedSpace, unsigned long)+0x20c
+            [0x00007fb106717477] CardGeneration::CardGeneration(ReservedSpace, unsigned long, int, GenRemSet*)+0xc7
+            [0x00007fb106b96542] TenuredGeneration::TenuredGeneration(ReservedSpace, unsigned long, int, GenRemSet*)+0x42
+            [0x00007fb10671876d] GenerationSpec::init(ReservedSpace, int, GenRemSet*)+0xad
+
+[0x0000000100000000 - 0x0000000140000000] reserved 1048576KB for Class from
+    [0x00007fb106bf62c1] ReservedSpace::ReservedSpace(unsigned long, unsigned long, bool, char*, unsigned long)+0x91
+    [0x00007fb1069b5c00] Metaspace::allocate_metaspace_compressed_klass_ptrs(char*, unsigned char*)+0x40
+    [0x00007fb1069b6644] Metaspace::global_initialize()+0x554
+    [0x00007fb106bbf5c1] universe_init()+0x61
+
+	[0x0000000100000000 - 0x0000000100080000] committed 512KB from
+            [0x00007fb106bf7ec0] VirtualSpace::expand_by(unsigned long, bool)+0x140
+            [0x00007fb1069b2799] VirtualSpaceList::get_new_chunk(unsigned long, unsigned long)+0x1a9
+            [0x00007fb1069b2d00] Metaspace::get_initialization_chunk(Metaspace::MetaspaceType, Metaspace::MetadataType)+0x1c0
+            [0x00007fb1069b4240] Metaspace::Metaspace(Mutex*, Metaspace::MetaspaceType)+0x2d0
+
+[0x00007fb0f0afb000 - 0x00007fb0f0bfc000] reserved and committed 1028KB for Thread Stack from
+    [0x00007fb10641e559] attach_listener_thread_entry(JavaThread*, Thread*)+0x29
+    [0x00007fb106ba3f9b] JavaThread::thread_main_inner()+0xdb
+    [0x00007fb106ba422f] JavaThread::run()+0x25f
+    [0x00007fb106a36c92] java_start(Thread*)+0x102
+
+[0x00007fb0f0bfd000 - 0x00007fb0f0cfd000] reserved and committed 1024KB for Thread Stack from
+    [0x00007fb106a36c92] java_start(Thread*)+0x102
+
+[0x00007fb0f0cfd000 - 0x00007fb0f0dfe000] reserved and committed 1028KB for Thread Stack from
+    [0x00007fb106a36c92] java_start(Thread*)+0x102
+
+[0x00007fb0f0dff000 - 0x00007fb0f0eff000] reserved and committed 1024KB for Thread Stack from
+    [0x00007fb106a36c92] java_start(Thread*)+0x102
+
+[0x00007fb0f0f00000 - 0x00007fb0f1000000] reserved and committed 1024KB for Thread Stack from
+    [0x00007fb106a36c92] java_start(Thread*)+0x102
+
+[0x00007fb0f1000000 - 0x00007fb100000000] reserved 245760KB for Code from
+    [0x00007fb106bf7487] ReservedCodeSpace::ReservedCodeSpace(unsigned long, unsigned long, bool)+0x77
+    [0x00007fb106735d01] CodeHeap::reserve(unsigned long, unsigned long, unsigned long)+0xd1
+    [0x00007fb10658773a] codeCache_init()+0x7a
+    [0x00007fb10675c0dc] init_globals()+0x3c
+
+	[0x00007fb0f1000000 - 0x00007fb0f1270000] committed 2496KB from
+            [0x00007fb106bf793c] VirtualSpace::initialize(ReservedSpace, unsigned long)+0x20c
+            [0x00007fb106735d54] CodeHeap::reserve(unsigned long, unsigned long, unsigned long)+0x124
+            [0x00007fb10658773a] codeCache_init()+0x7a
+            [0x00007fb10675c0dc] init_globals()+0x3c
+
+[0x00007fb1040f8000 - 0x00007fb1041f9000] reserved and committed 1028KB for Thread Stack from
+    [0x00007fb106a36c92] java_start(Thread*)+0x102
+
+[0x00007fb1041f9000 - 0x00007fb1042fa000] reserved and committed 1028KB for Thread Stack from
+    [0x00007fb106a36c92] java_start(Thread*)+0x102
+
+[0x00007fb1042fa000 - 0x00007fb1043fb000] reserved and committed 1028KB for Thread Stack from
+    [0x00007fb106a36c92] java_start(Thread*)+0x102
+
+[0x00007fb1043fc000 - 0x00007fb1044fc000] reserved and committed 1024KB for Thread Stack from
+    [0x00007fb106c00d8d] VMThread::run()+0x1d
+    [0x00007fb106a36c92] java_start(Thread*)+0x102
+
+[0x00007fb1047f6000 - 0x00007fb104ff6000] reserved 8192KB for Class from
+    [0x00007fb106bf63dd] ReservedSpace::ReservedSpace(unsigned long, unsigned long, bool, char*, unsigned long)+0x1ad
+    [0x00007fb1069ac78e] VirtualSpaceNode::VirtualSpaceNode(unsigned long)+0x16e
+    [0x00007fb1069b216b] VirtualSpaceList::create_new_virtual_space(unsigned long) [clone .part.64]+0x3b
+    [0x00007fb1069b66bb] Metaspace::global_initialize()+0x5cb
+
+	[0x00007fb104bf6000 - 0x00007fb104c36000] committed 256KB from
+            [0x00007fb106bf7ec0] VirtualSpace::expand_by(unsigned long, bool)+0x140
+            [0x00007fb1069b2799] VirtualSpaceList::get_new_chunk(unsigned long, unsigned long)+0x1a9
+            [0x00007fb1069b4117] Metaspace::Metaspace(Mutex*, Metaspace::MetaspaceType)+0x1a7
+            [0x00007fb10656d8f6] ClassLoaderData::metaspace_non_null()+0xd6
+
+	[0x00007fb1047f6000 - 0x00007fb104bf6000] committed 4096KB from
+            [0x00007fb106bf7ec0] VirtualSpace::expand_by(unsigned long, bool)+0x140
+            [0x00007fb1069b2799] VirtualSpaceList::get_new_chunk(unsigned long, unsigned long)+0x1a9
+            [0x00007fb1069b4117] Metaspace::Metaspace(Mutex*, Metaspace::MetaspaceType)+0x1a7
+            [0x00007fb10656d9c0] ClassLoaderData::metaspace_non_null()+0x1a0
+
+[0x00007fb104ff6000 - 0x00007fb1053b6000] reserved 3840KB for Code from
+    [0x00007fb106bf60fa] ReservedSpace::ReservedSpace(unsigned long, unsigned long)+0x10a
+    [0x00007fb106735e1e] CodeHeap::reserve(unsigned long, unsigned long, unsigned long)+0x1ee
+    [0x00007fb10658773a] codeCache_init()+0x7a
+    [0x00007fb10675c0dc] init_globals()+0x3c
+
+	[0x00007fb104ff6000 - 0x00007fb105000000] committed 40KB from
+            [0x00007fb106bf793c] VirtualSpace::initialize(ReservedSpace, unsigned long)+0x20c
+            [0x00007fb106735e3d] CodeHeap::reserve(unsigned long, unsigned long, unsigned long)+0x20d
+            [0x00007fb10658773a] codeCache_init()+0x7a
+            [0x00007fb10675c0dc] init_globals()+0x3c
+
+[0x00007fb107b53000 - 0x00007fb107ba6000] reserved 332KB for GC from
+    [0x00007fb106bf60fa] ReservedSpace::ReservedSpace(unsigned long, unsigned long)+0x10a
+    [0x00007fb10643d96c] BlockOffsetSharedArray::BlockOffsetSharedArray(MemRegion, unsigned long)+0x5c
+    [0x00007fb106717526] CardGeneration::CardGeneration(ReservedSpace, unsigned long, int, GenRemSet*)+0x176
+    [0x00007fb106b96542] TenuredGeneration::TenuredGeneration(ReservedSpace, unsigned long, int, GenRemSet*)+0x42
+
+	[0x00007fb107b53000 - 0x00007fb107b59000] committed 24KB from
+            [0x00007fb106bf7ec0] VirtualSpace::expand_by(unsigned long, bool)+0x140
+            [0x00007fb10643da60] BlockOffsetSharedArray::BlockOffsetSharedArray(MemRegion, unsigned long)+0x150
+            [0x00007fb106717526] CardGeneration::CardGeneration(ReservedSpace, unsigned long, int, GenRemSet*)+0x176
+            [0x00007fb106b96542] TenuredGeneration::TenuredGeneration(ReservedSpace, unsigned long, int, GenRemSet*)+0x42
+
+[0x00007fb107ba6000 - 0x00007fb107c23000] reserved 500KB for GC from
+    [0x00007fb106bf63dd] ReservedSpace::ReservedSpace(unsigned long, unsigned long, bool, char*, unsigned long)+0x1ad
+    [0x00007fb1064ff334] CardTableModRefBS::initialize()+0xf4
+    [0x00007fb10650161e] CardTableRS::CardTableRS(MemRegion, int)+0x8e
+    [0x00007fb10658e57b] CollectorPolicy::create_rem_set(MemRegion, int)+0x3b
+
+	[0x00007fb107ba6000 - 0x00007fb107ba9000] committed 12KB from
+            [0x00007fb1064ffaae] CardTableModRefBS::resize_covered_region(MemRegion)+0x22e
+            [0x00007fb106615a2c] DefNewGeneration::DefNewGeneration(ReservedSpace, unsigned long, int, char const*)+0x1fc
+            [0x00007fb106718a2d] GenerationSpec::init(ReservedSpace, int, GenRemSet*)+0x36d
+            [0x00007fb10670399f] GenCollectedHeap::initialize()+0x20f
+
+	[0x00007fb107bcf000 - 0x00007fb107bd5000] committed 24KB from
+            [0x00007fb1064ffaae] CardTableModRefBS::resize_covered_region(MemRegion)+0x22e
+            [0x00007fb106500a0b] CardTableRS::resize_covered_region(MemRegion)+0x2b
+            [0x00007fb106717550] CardGeneration::CardGeneration(ReservedSpace, unsigned long, int, GenRemSet*)+0x1a0
+            [0x00007fb106b96542] TenuredGeneration::TenuredGeneration(ReservedSpace, unsigned long, int, GenRemSet*)+0x42
+
+	[0x00007fb107c22000 - 0x00007fb107c23000] committed 4KB from
+            [0x00007fb1064ff3ee] CardTableModRefBS::initialize()+0x1ae
+            [0x00007fb10650161e] CardTableRS::CardTableRS(MemRegion, int)+0x8e
+            [0x00007fb10658e57b] CollectorPolicy::create_rem_set(MemRegion, int)+0x3b
+            [0x00007fb106703905] GenCollectedHeap::initialize()+0x175
+
+[0x00007fb107c23000 - 0x00007fb107c2b000] reserved and committed 32KB for Internal from
+    [0x00007fb106a895a1] PerfMemory::create_memory_region(unsigned long)+0xa41
+    [0x00007fb106a87faa] perfMemory_init()+0x4a
+    [0x00007fb106ba1be5] Threads::create_vm(JavaVMInitArgs*, bool*)+0x1e5
+    [0x00007fb1068019ff] JNI_CreateJavaVM+0x4f
+ N
+[0x00007fb107c2c000 - 0x00007fb107d2c000] reserved and committed 1024KB for Thread Stack from
+    [0x00007fb106ba1c1e] Threads::create_vm(JavaVMInitArgs*, bool*)+0x21e
+    [0x00007fb1068019ff] JNI_CreateJavaVM+0x4f
+    [0x00007fb1076eae74] JavaMain+0x84
+Details:
+
+[0x00007fb10668933a] ElfStringTable::ElfStringTable(_IO_FILE*, Elf64_Shdr, int)+0x4a
+[0x00007fb106688d45] ElfFile::load_tables()+0x155
+[0x00007fb10660f8d5] ElfDecoder::decode(unsigned char*, char*, int, int*, char const*)+0xa5
+[0x00007fb10660f14a] Decoder::decode(unsigned char*, char*, int, int*, char const*)+0xea
+                             (malloc=1655KB type=Internal #3)
+
+[0x00007fb1066895b4] ElfSymbolTable::ElfSymbolTable(_IO_FILE*, Elf64_Shdr)+0x64
+[0x00007fb106688dc0] ElfFile::load_tables()+0x1d0
+[0x00007fb10660f8d5] ElfDecoder::decode(unsigned char*, char*, int, int*, char const*)+0xa5
+[0x00007fb10660f14a] Decoder::decode(unsigned char*, char*, int, int*, char const*)+0xea
+                             (malloc=1000KB type=Internal #2)
+
+[0x00007fb106bbfa70] universe_init()+0x510
+[0x00007fb10675c0f0] init_globals()+0x50
+[0x00007fb106ba1c57] Threads::create_vm(JavaVMInitArgs*, bool*)+0x257
+[0x00007fb1068019ff] JNI_CreateJavaVM+0x4f
+                             (malloc=469KB type=Symbol #1)
+
+[0x00007fb106b5d359] SymbolTable::initialize_symbols(int)+0x69
+[0x00007fb106bbf90c] universe_init()+0x3ac
+[0x00007fb10675c0f0] init_globals()+0x50
+[0x00007fb106ba1c57] Threads::create_vm(JavaVMInitArgs*, bool*)+0x257
+                             (malloc=360KB type=Arena Chunk #1)
+
+[0x00007fb106733fa5] BasicHashtable<(MemoryType)9>::new_entry(unsigned int)+0x175
+[0x00007fb106733ff1] Hashtable<Symbol*, (MemoryType)9>::new_entry(unsigned int, Symbol*)+0x11
+[0x00007fb106b5edc4] SymbolTable::basic_add(ClassLoaderData*, constantPoolHandle, int, char const**, int*, int*, unsigned int*, Thread*)+0x214
+[0x00007fb106b5efa7] SymbolTable::add(ClassLoaderData*, constantPoolHandle, int, char const**, int*, int*, unsigned int*, Thread*)+0xb7
+                             (malloc=304KB type=Symbol #38)
+
+[0x00007fb106bbfae0] universe_init()+0x580
+[0x00007fb10675c0f0] init_globals()+0x50
+[0x00007fb106ba1c57] Threads::create_vm(JavaVMInitArgs*, bool*)+0x257
+[0x00007fb1068019ff] JNI_CreateJavaVM+0x4f
+                             (malloc=156KB type=Symbol #1)
+
+[0x00007fb1069723d0] MallocSiteTable::new_entry(NativeCallStack const&, MemoryType)+0x0
+[0x00007fb106972440] MallocSiteTable::lookup_or_add(NativeCallStack const&, unsigned long*, unsigned long*, MemoryType)+0x0
+[0x00007fb106972c70] MallocSiteTable::allocation_at(NativeCallStack const&, unsigned long, unsigned long*, unsigned long*, MemoryType)+0x0
+                             (malloc=88KB type=Native Memory Tracking #1256)
+
+[0x00007fb1063f3d7d] ChunkPool::allocate(unsigned long, AllocFailStrategy::AllocFailEnum)+0x10d
+[0x00007fb1063f3532] Arena::grow(unsigned long, AllocFailStrategy::AllocFailEnum)+0x42
+[0x00007fb106986650] Matcher::Label_Root(Node const*, State*, Node*, Node const*)+0x450
+[0x00007fb10698660d] Matcher::Label_Root(Node const*, State*, Node*, Node const*)+0x40d
+                             (malloc=64KB type=Arena Chunk #2)
+
+[0x00007fb106608654] ConstantPool::allocate(ClassLoaderData*, int, Thread*)+0x124
+[0x00007fb106562ad1] ClassFileParser::parse_constant_pool(Thread*)+0xd1
+[0x00007fb106563e57] ClassFileParser::parseClassFile(Symbol*, ClassLoaderData*, Handle, KlassHandle, GrowableArray<Handle>*, TempNewSymbol&, bool, Thread*)+0x587
+[0x00007fb10656b44a] ClassLoader::load_classfile(Symbol*, Thread*)+0x45a
+                             (malloc=64KB type=Internal #542)
+
+[0x00007fb106733fa5] BasicHashtable<(MemoryType)9>::new_entry(unsigned int)+0x175
+[0x00007fb106734011] Hashtable<oopDesc*, (MemoryType)9>::new_entry(unsigned int, oopDesc*)+0x11
+[0x00007fb106b5f5d9] StringTable::basic_add(int, Handle, unsigned short*, int, unsigned int, Thread*)+0xc9
+[0x00007fb106b5fb1f] StringTable::intern(Handle, unsigned short*, int, Thread*)+0x16f
+                             (malloc=40KB type=Symbol #5)
+
+[0x00007fb1067336d5] BasicHashtable<(MemoryType)1>::new_entry(unsigned int)+0x175
+[0x00007fb106733781] Hashtable<Symbol*, (MemoryType)1>::new_entry(unsigned int, Symbol*)+0x11
+[0x00007fb106a92666] PlaceholderTable::find_and_add(int, unsigned int, Symbol*, ClassLoaderData*, PlaceholderTable::classloadAction, Symbol*, Thread*)+0x106
+[0x00007fb106b6ba9d] SystemDictionary::resolve_instance_class_or_null(Symbol*, Handle, Handle, Thread*)+0x73d
+                             (malloc=32KB type=Class #1)
+
+[0x00007fb1067336d5] BasicHashtable<(MemoryType)1>::new_entry(unsigned int)+0x175
+[0x00007fb106733741] Hashtable<Klass*, (MemoryType)1>::new_entry(unsigned int, Klass*)+0x11
+[0x00007fb1066765c5] Dictionary::add_klass(Symbol*, ClassLoaderData*, KlassHandle)+0x75
+[0x00007fb106b66245] SystemDictionary::update_dictionary(int, unsigned int, int, unsigned int, instanceKlassHandle, Handle, Thread*)+0x105
+                             (malloc=32KB type=Class #2)
+
+[0x00007fb1063f3d7d] ChunkPool::allocate(unsigned long, AllocFailStrategy::AllocFailEnum)+0x10d
+[0x00007fb1063f3532] Arena::grow(unsigned long, AllocFailStrategy::AllocFailEnum)+0x42
+[0x00007fb1067135f6] GraphKit::gen_stub(unsigned char*, char const*, int, bool, bool)+0x3e6
+[0x00007fb1065ab9b5] Compile::Compile(ciEnv*, TypeFunc const* (*)(), unsigned char*, char const*, int, bool, bool, bool)+0x6e5
+                             (malloc=32KB type=Arena Chunk #1)
+
+[0x00007fb1063f3d7d] ChunkPool::allocate(unsigned long, AllocFailStrategy::AllocFailEnum)+0x10d
+[0x00007fb1063f3532] Arena::grow(unsigned long, AllocFailStrategy::AllocFailEnum)+0x42
+[0x00007fb106730255] GenericGrowableArray::raw_allocate(int)+0x175
+[0x00007fb10653a5ee] ciObjectFactory::ciObjectFactory(Arena*, int)+0xbe
+                             (malloc=32KB type=Arena Chunk #1)
+
+[0x00007fb1063f3d7d] ChunkPool::allocate(unsigned long, AllocFailStrategy::AllocFailEnum)+0x10d
+[0x00007fb1063f3532] Arena::grow(unsigned long, AllocFailStrategy::AllocFailEnum)+0x42
+[0x00007fb106674a0d] Dict::Dict(int (*)(void const*, void const*), int (*)(void const*), Arena*, int)+0x10d
+[0x00007fb106bb87f1] Type::Initialize(Compile*)+0x81
+                             (malloc=32KB type=Arena Chunk #1)
+
+[0x00007fb1063f3d7d] ChunkPool::allocate(unsigned long, AllocFailStrategy::AllocFailEnum)+0x10d
+[0x00007fb1063f3532] Arena::grow(unsigned long, AllocFailStrategy::AllocFailEnum)+0x42
+[0x00007fb106618e8c] DefaultMethods::generate_default_methods(InstanceKlass*, GrowableArray<Method*>*, Thread*)+0x1acc
+[0x00007fb106564cea] ClassFileParser::parseClassFile(Symbol*, ClassLoaderData*, Handle, KlassHandle, GrowableArray<Handle>*, TempNewSymbol&, bool, Thread*)+0x141a
+                             (malloc=32KB type=Arena Chunk #1)
+
+[0x00007fb1063f3d7d] ChunkPool::allocate(unsigned long, AllocFailStrategy::AllocFailEnum)+0x10d
+[0x00007fb1063f3532] Arena::grow(unsigned long, AllocFailStrategy::AllocFailEnum)+0x42
+[0x00007fb10661807d] DefaultMethods::generate_default_methods(InstanceKlass*, GrowableArray<Method*>*, Thread*)+0xcbd
+[0x00007fb106564cea] ClassFileParser::parseClassFile(Symbol*, ClassLoaderData*, Handle, KlassHandle, GrowableArray<Handle>*, TempNewSymbol&, bool, Thread*)+0x141a
+                             (malloc=32KB type=Arena Chunk #1)
+
+[0x00007fb1063f3d7d] ChunkPool::allocate(unsigned long, AllocFailStrategy::AllocFailEnum)+0x10d
+[0x00007fb1063f3532] Arena::grow(unsigned long, AllocFailStrategy::AllocFailEnum)+0x42
+[0x00007fb1064049ff] Handle::Handle(oopDesc*)+0x8f
+[0x00007fb1067b5561] java_lang_Class::create_mirror(KlassHandle, Handle, Handle, Thread*)+0x71
+                             (malloc=32KB type=Arena Chunk #1)
+
+[0x00007fb1063f3d7d] ChunkPool::allocate(unsigned long, AllocFailStrategy::AllocFailEnum)+0x10d
+[0x00007fb1063f3532] Arena::grow(unsigned long, AllocFailStrategy::AllocFailEnum)+0x42
+[0x00007fb106584fb0] CodeBuffer::initialize(int, int)+0xe0
+[0x00007fb106b03b22] OptoRuntime::generate_exception_blob()+0x202
+                             (malloc=32KB type=Arena Chunk #1)
+
+[0x00007fb1063f3d7d] ChunkPool::allocate(unsigned long, AllocFailStrategy::AllocFailEnum)+0x10d
+[0x00007fb1063f3532] Arena::grow(unsigned long, AllocFailStrategy::AllocFailEnum)+0x42
+[0x00007fb1064c0f0f] Interval::add_range(int, int)+0xdf
+[0x00007fb1064c11e0] LinearScan::add_use(int, int, int, IntervalUseKind, BasicType)+0x40
+                             (malloc=32KB type=Arena Chunk #1)
+
+[0x00007fb1063f3d7d] ChunkPool::allocate(unsigned long, AllocFailStrategy::AllocFailEnum)+0x10d
+[0x00007fb1063f3532] Arena::grow(unsigned long, AllocFailStrategy::AllocFailEnum)+0x42
+[0x00007fb1064c01b7] Interval::Interval(int)+0x47
+[0x00007fb1064c02ca] LinearScan::create_interval(int)+0x7a
+                             (malloc=32KB type=Arena Chunk #1)
+
+[0x00007fb1063f3d7d] ChunkPool::allocate(unsigned long, AllocFailStrategy::AllocFailEnum)+0x10d
+[0x00007fb1063f3532] Arena::grow(unsigned long, AllocFailStrategy::AllocFailEnum)+0x42
+[0x00007fb1064c220f] Interval::new_split_child()+0x12f
+[0x00007fb1064c223c] Interval::split(int)+0x1c
+                             (malloc=32KB type=Arena Chunk #1)
+
+[0x00007fb1063f3d7d] ChunkPool::allocate(unsigned long, AllocFailStrategy::AllocFailEnum)+0x10d
+[0x00007fb1063f3532] Arena::grow(unsigned long, AllocFailStrategy::AllocFailEnum)+0x42
+[0x00007fb1064cbacc] LinearScan::compute_debug_info_for_scope(int, IRScope*, ValueStack*, ValueStack*)+0x49c
+[0x00007fb1064cc0d5] LinearScan::assign_reg_num(LIR_OpList*, IntervalWalker*)+0x385
+                             (malloc=32KB type=Arena Chunk #1)
+
+[0x00007fb1063f3d7d] ChunkPool::allocate(unsigned long, AllocFailStrategy::AllocFailEnum)+0x10d
+[0x00007fb1063f3532] Arena::grow(unsigned long, AllocFailStrategy::AllocFailEnum)+0x42
+[0x00007fb1063f385e] Arena::Arealloc(void*, unsigned long, unsigned long, AllocFailStrategy::AllocFailEnum)+0x12e
+[0x00007fb106a101c7] Node_Array::grow(unsigned int)+0x57
+                             (malloc=32KB type=Arena Chunk #1)
+
+[0x00007fb1063f3d7d] ChunkPool::allocate(unsigned long, AllocFailStrategy::AllocFailEnum)+0x10d
+[0x00007fb1063f3532] Arena::grow(unsigned long, AllocFailStrategy::AllocFailEnum)+0x42
+[0x00007fb1064ad8fb] LIR_List::branch_destination(Label*)+0x1b
+[0x00007fb1064aac60] LIRGenerator::do_ProfileInvoke(ProfileInvoke*)+0x60
+                             (malloc=32KB type=Arena Chunk #1)
+
+[0x00007fb1063f3d7d] ChunkPool::allocate(unsigned long, AllocFailStrategy::AllocFailEnum)+0x10d
+[0x00007fb1063f3532] Arena::grow(unsigned long, AllocFailStrategy::AllocFailEnum)+0x42
+[0x00007fb10666edc6] JMXStartRemoteDCmd::num_arguments()+0x46
+[0x00007fb10666f315] DCmdRegistrant::register_dcmds()+0x3d5
+                             (malloc=32KB type=Arena Chunk #1)
+
+[0x00007fb106733fa5] BasicHashtable<(MemoryType)9>::new_entry(unsigned int)+0x175
+[0x00007fb106733ff1] Hashtable<Symbol*, (MemoryType)9>::new_entry(unsigned int, Symbol*)+0x11
+[0x00007fb106b5dfc0] SymbolTable::basic_add(int, unsigned char*, int, unsigned int, bool, Thread*)+0x180
+[0x00007fb106b5e89c] SymbolTable::new_permanent_symbol(char const*, Thread*)+0x14c
+                             (malloc=24KB type=Symbol #3)
+
+[0x00007fb106b62ec5] ObjectSynchronizer::omAlloc(Thread*)+0x6c5
+[0x00007fb106b62fb0] ObjectSynchronizer::inflate(Thread*, oopDesc*)+0x60
+[0x00007fb106b6396a] ObjectSynchronizer::wait(Handle, long, Thread*)+0x3a
+[0x00007fb10681d638] JVM_MonitorWait+0x98
+                             (malloc=22KB type=Internal #1)
+
+[0x00007fb1067336d5] BasicHashtable<(MemoryType)1>::new_entry(unsigned int)+0x175
+[0x00007fb106733761] Hashtable<oopDesc*, (MemoryType)1>::new_entry(unsigned int, oopDesc*)+0x11
+[0x00007fb1066770e1] ProtectionDomainCacheTable::get(oopDesc*)+0x91
+[0x00007fb106678105] Dictionary::add_protection_domain(int, unsigned int, instanceKlassHandle, ClassLoaderData*, Handle, Thread*)+0xb5
+                             (malloc=16KB type=Class #1)
+
+[0x00007fb106677e21] Dictionary::Dictionary(int)+0x2a1
+[0x00007fb106b6e10b] SystemDictionary::initialize(Thread*)+0x5b
+[0x00007fb106bbc3c8] Universe::genesis(Thread*)+0x3b8
+[0x00007fb106bbd42c] universe2_init()+0x2c
+                             (malloc=16KB type=Class #1)
+
+[0x00007fb10658a493] CollectedHeap::CollectedHeap()+0x193
+[0x00007fb106ae78c8] SharedHeap::SharedHeap(CollectorPolicy*)+0x18
+[0x00007fb106703af2] GenCollectedHeap::GenCollectedHeap(GenCollectorPolicy*)+0x12
+[0x00007fb106bbf435] Universe::initialize_heap()+0x2e5
+                             (malloc=10KB type=Internal #1)
+
+[0x00007fb1063f3d7d] ChunkPool::allocate(unsigned long, AllocFailStrategy::AllocFailEnum)+0x10d
+[0x00007fb1063f266b] Arena::Arena(MemoryType, unsigned long)+0x14b
+[0x00007fb106984e1b] Matcher::Matcher()+0x3b
+[0x00007fb1065aaf77] Compile::Code_Gen()+0x47
+                             (malloc=10KB type=Arena Chunk #1)
+
+[0x00007fb1066895b4] ElfSymbolTable::ElfSymbolTable(_IO_FILE*, Elf64_Shdr)+0x64
+[0x00007fb106688dc0] ElfFile::load_tables()+0x1d0
+[0x00007fb10660f8d5] ElfDecoder::decode(unsigned char*, char*, int, int*, char const*)+0xa5
+[0x00007fb10660f0ce] Decoder::decode(unsigned char*, char*, int, int*, char const*)+0x6e
+                             (malloc=10KB type=Internal #2)
+
+[0x00007fb10657fd5d] CodeBlob::set_oop_maps(OopMapSet*) [clone .part.5]+0xed
+[0x00007fb106580153] CodeBlob::CodeBlob(char const*, CodeBuffer*, int, int, int, int, OopMapSet*)+0xe3
+[0x00007fb106a0585d] nmethod::nmethod(Method*, int, int, int, CodeOffsets*, int, DebugInformationRecorder*, Dependencies*, CodeBuffer*, int, OopMapSet*, ExceptionHandlerTable*, ImplicitExceptionTable*, AbstractCompiler*, int)+0x4d
+[0x00007fb106a061e9] nmethod::new_nmethod(methodHandle, int, int, CodeOffsets*, int, DebugInformationRecorder*, Dependencies*, CodeBuffer*, int, OopMapSet*, ExceptionHandlerTable*, ImplicitExceptionTable*, AbstractCompiler*, int)+0x219
+                             (malloc=9KB type=Code #31)
+
+[0x00007fb106a9213d] PlaceholderTable::PlaceholderTable(int)+0x12d
+[0x00007fb106b6e131] SystemDictionary::initialize(Thread*)+0x81
+[0x00007fb106bbc3c8] Universe::genesis(Thread*)+0x3b8
+[0x00007fb106bbd42c] universe2_init()+0x2c
+                             (malloc=8KB type=Class #1)
+
+[0x00007fb106677dd5] Dictionary::Dictionary(int)+0x255
+[0x00007fb106b6e10b] SystemDictionary::initialize(Thread*)+0x5b
+[0x00007fb106bbc3c8] Universe::genesis(Thread*)+0x3b8
+[0x00007fb106bbd42c] universe2_init()+0x2c
+                             (malloc=8KB type=Class #1)
+
+[0x00007fb106b5b9d5] Symbol::operator new(unsigned long, int, Thread*)+0xf5
+[0x00007fb106b5ed7c] SymbolTable::basic_add(ClassLoaderData*, constantPoolHandle, int, char const**, int*, int*, unsigned int*, Thread*)+0x1cc
+[0x00007fb106b5efa7] SymbolTable::add(ClassLoaderData*, constantPoolHandle, int, char const**, int*, int*, unsigned int*, Thread*)+0xb7
+[0x00007fb10655dee4] ClassFileParser::parse_constant_pool_entries(int, Thread*)+0xc94
+                             (malloc=7KB type=Symbol #288)
+
+[0x00007fb10657fd5d] CodeBlob::set_oop_maps(OopMapSet*) [clone .part.5]+0xed
+[0x00007fb1065818dc] RuntimeStub::new_runtime_stub(char const*, CodeBuffer*, int, int, OopMapSet*, bool)+0x28c
+[0x00007fb1064ddc96] Runtime1::generate_blob_for(BufferBlob*, Runtime1::StubID)+0x146
+[0x00007fb1064ddd35] Runtime1::initialize(BufferBlob*)+0x25
+                             (malloc=7KB type=Code #29)
+
+[0x00007fb106b9837d] Thread::allocate(unsigned long, bool, MemoryType)+0x30d
+[0x00007fb106822670] JVM_StartThread+0xe0
+[0x00007fb0f1018667]
+                             (malloc=6KB type=Thread #2)
+
+[0x00007fb10668933a] ElfStringTable::ElfStringTable(_IO_FILE*, Elf64_Shdr, int)+0x4a
+[0x00007fb106688d45] ElfFile::load_tables()+0x155
+[0x00007fb10660f8d5] ElfDecoder::decode(unsigned char*, char*, int, int*, char const*)+0xa5
+[0x00007fb10660f0ce] Decoder::decode(unsigned char*, char*, int, int*, char const*)+0x6e
+                             (malloc=6KB type=Internal #3)
+
+[0x00007fb106734a75] BasicHashtable<(MemoryType)4>::new_entry(unsigned int)+0x175
+[0x00007fb106af538b] AdapterHandlerLibrary::initialize() [clone .part.63]+0x15b
+[0x00007fb106af6545] AdapterHandlerLibrary::get_adapter(methodHandle)+0x1035
+[0x00007fb1069bcb77] Method::link_method(methodHandle, Thread*) [clone .part.92]+0x277
+                             (malloc=4KB type=Code #1)
+
+[0x00007fb106734a75] BasicHashtable<(MemoryType)4>::new_entry(unsigned int)+0x175
+[0x00007fb106af3841] AdapterHandlerLibrary::new_entry(AdapterFingerPrint*, unsigned char*, unsigned char*, unsigned char*)+0xe1
+[0x00007fb106aff4be] SharedRuntime::generate_i2c2i_adapters(MacroAssembler*, int, int, BasicType const*, VMRegPair const*, AdapterFingerPrint*)+0xfae
+[0x00007fb106af6306] AdapterHandlerLibrary::get_adapter(methodHandle)+0xdf6
+                             (malloc=4KB type=Code #1)
+
+[0x00007fb106af5f22] AdapterHandlerLibrary::get_adapter(methodHandle)+0xa12
+[0x00007fb1069bcb77] Method::link_method(methodHandle, Thread*) [clone .part.92]+0x277
+[0x00007fb1067672d0] InstanceKlass::link_methods(Thread*)+0xb0
+[0x00007fb106767a57] InstanceKlass::link_class_impl(instanceKlassHandle, bool, Thread*)+0x487
+                             (malloc=4KB type=Code #155)
+
+[0x00007fb106993240] MallocAllocationSiteWalker::do_malloc_site(MallocSite const*)+0x40
+[0x00007fb106972b38] MallocSiteTable::walk_malloc_site(MallocSiteWalker*)+0xb8
+[0x00007fb10698e9f4] MemBaseline::baseline_allocation_sites()+0x54
+[0x00007fb10698efe3] MemBaseline::baseline(bool)+0x3e3
+                             (malloc=3KB type=Native Memory Tracking #47)
+
+[0x00007fb106b5b9d5] Symbol::operator new(unsigned long, int, Thread*)+0xf5
+[0x00007fb106b5df37] SymbolTable::basic_add(int, unsigned char*, int, unsigned int, bool, Thread*)+0xf7
+[0x00007fb106b5e194] SymbolTable::lookup(char const*, int, Thread*)+0x144
+[0x00007fb10661728b] MethodFamily::generate_method_message(Symbol*, Method*, Thread*) const+0xbb
+                             (malloc=3KB type=Symbol #37)
+
+[0x00007fb10673023d] GenericGrowableArray::raw_allocate(int)+0x15d
+[0x00007fb106a87b24] PerfDataManager::create_string_constant(CounterNS, char const*, char const*, Thread*)+0x144
+[0x00007fb106b21251] StatSampler::create_system_property_instrumentation(Thread*)+0xe1
+[0x00007fb106b21485] StatSampler::create_misc_perfdata()+0xe5
+                             (malloc=3KB type=Internal #1)
+
+[0x00007fb10641f3e5] LinuxAttachListener::read_request(int)+0x305
+[0x00007fb10641f5ef] LinuxAttachListener::dequeue()+0xbf
+[0x00007fb10641f69e] AttachListener::dequeue()+0x8e
+[0x00007fb10641e5f5] attach_listener_thread_entry(JavaThread*, Thread*)+0xc5
+                             (malloc=3KB type=Internal #1)
+
+[0x00007fb106b9837d] Thread::allocate(unsigned long, bool, MemoryType)+0x30d
+[0x00007fb1065b108f] CompileBroker::make_compiler_thread(char const*, CompileQueue*, CompilerCounters*, AbstractCompiler*, Thread*)+0x10f
+[0x00007fb1065b353b] CompileBroker::init_compiler_threads(int, int)+0x13b
+[0x00007fb1065b3abe] CompileBroker::compilation_init()+0x6e
+                             (malloc=3KB type=Thread #1)
+
+[0x00007fb106b9837d] Thread::allocate(unsigned long, bool, MemoryType)+0x30d
+[0x00007fb1065b108f] CompileBroker::make_compiler_thread(char const*, CompileQueue*, CompilerCounters*, AbstractCompiler*, Thread*)+0x10f
+[0x00007fb1065b382b] CompileBroker::init_compiler_threads(int, int)+0x42b
+[0x00007fb1065b3abe] CompileBroker::compilation_init()+0x6e
+                             (malloc=3KB type=Thread #1)
+
+[0x00007fb106b9837d] Thread::allocate(unsigned long, bool, MemoryType)+0x30d
+[0x00007fb106ba1bf9] Threads::create_vm(JavaVMInitArgs*, bool*)+0x1f9
+[0x00007fb1068019ff] JNI_CreateJavaVM+0x4f
+[0x00007fb1076eae74] JavaMain+0x84
+                             (malloc=3KB type=Thread #1)
+
+[0x00007fb106b9837d] Thread::allocate(unsigned long, bool, MemoryType)+0x30d
+[0x00007fb106a2e0e3] os::signal_init()+0x1a3
+[0x00007fb106ba274e] Threads::create_vm(JavaVMInitArgs*, bool*)+0xd4e
+[0x00007fb1068019ff] JNI_CreateJavaVM+0x4f
+                             (malloc=3KB type=Thread #1)
+
+[0x00007fb106b9837d] Thread::allocate(unsigned long, bool, MemoryType)+0x30d
+[0x00007fb106ae6326] ServiceThread::initialize()+0x136
+[0x00007fb10697b16c] Management::initialize(Thread*)+0x1c
+[0x00007fb106ba27c5] Threads::create_vm(JavaVMInitArgs*, bool*)+0xdc5
+                             (malloc=3KB type=Thread #1)
+
+[0x00007fb106b9837d] Thread::allocate(unsigned long, bool, MemoryType)+0x30d
+[0x00007fb10641e030] AttachListener::init()+0x1b0
+[0x00007fb10641efb4] AttachListener::is_init_trigger()+0xb4
+[0x00007fb106a2d8d6] signal_thread_entry(JavaThread*, Thread*)+0x66
+                             (malloc=3KB type=Thread #1)
+
+[0x00007fb106698b8c] Events::init() [clone .part.7]+0x3cc
+[0x00007fb10675c083] vm_init_globals()+0x13
+[0x00007fb106ba1be5] Threads::create_vm(JavaVMInitArgs*, bool*)+0x1e5
+[0x00007fb1068019ff] JNI_CreateJavaVM+0x4f
+                             (malloc=3KB type=Internal #1)
+
+[0x00007fb10669898c] Events::init() [clone .part.7]+0x1cc
+[0x00007fb10675c083] vm_init_globals()+0x13
+[0x00007fb106ba1be5] Threads::create_vm(JavaVMInitArgs*, bool*)+0x1e5
+[0x00007fb1068019ff] JNI_CreateJavaVM+0x4f
+                             (malloc=3KB type=Internal #1)
+
+[0x00007fb1065b32f7] compileBroker_init()+0xa7
+[0x00007fb10675c160] init_globals()+0xc0
+[0x00007fb106ba1c57] Threads::create_vm(JavaVMInitArgs*, bool*)+0x257
+[0x00007fb1068019ff] JNI_CreateJavaVM+0x4f
+                             (malloc=3KB type=Internal #1)
+
+[0x00007fb106698a8c] Events::init() [clone .part.7]+0x2cc
+[0x00007fb10675c083] vm_init_globals()+0x13
+[0x00007fb106ba1be5] Threads::create_vm(JavaVMInitArgs*, bool*)+0x1e5
+[0x00007fb1068019ff] JNI_CreateJavaVM+0x4f
+                             (malloc=3KB type=Internal #1)
+
+[0x00007fb106698887] Events::init() [clone .part.7]+0xc7
+[0x00007fb10675c083] vm_init_globals()+0x13
+[0x00007fb106ba1be5] Threads::create_vm(JavaVMInitArgs*, bool*)+0x1e5
+[0x00007fb1068019ff] JNI_CreateJavaVM+0x4f
+                             (malloc=3KB type=Internal #1)
+
+[0x00007fb10656df8a] ClassLoaderData::add_handle(Handle)+0x8a
+[0x00007fb1065fbb75] ConstantPool::initialize_resolved_references(ClassLoaderData*, intStack, int, Thread*)+0x1e5
+[0x00007fb106adb6ae] Rewriter::Rewriter(instanceKlassHandle, constantPoolHandle, Array<Method*>*, Thread*)+0x30e
+[0x00007fb106adbf7a] Rewriter::rewrite(instanceKlassHandle, Thread*)+0x8a
+                             (malloc=3KB type=Class #10)
+
+[0x00007fb106b9837d] Thread::allocate(unsigned long, bool, MemoryType)+0x30d
+[0x00007fb106c00211] VMThread::create()+0x21
+[0x00007fb106ba1e1a] Threads::create_vm(JavaVMInitArgs*, bool*)+0x41a
+[0x00007fb1068019ff] JNI_CreateJavaVM+0x4f
+                             (malloc=2KB type=Thread #1)
+
+[0x00007fb106b9837d] Thread::allocate(unsigned long, bool, MemoryType)+0x30d
+[0x00007fb106ba28cb] Threads::create_vm(JavaVMInitArgs*, bool*)+0xecb
+[0x00007fb1068019ff] JNI_CreateJavaVM+0x4f
+[0x00007fb1076eae74] JavaMain+0x84
+                             (malloc=2KB type=Thread #1)
+
+[0x00007fb106af542d] AdapterHandlerLibrary::initialize() [clone .part.63]+0x1fd
+[0x00007fb106af6545] AdapterHandlerLibrary::get_adapter(methodHandle)+0x1035
+[0x00007fb1069bcb77] Method::link_method(methodHandle, Thread*) [clone .part.92]+0x277
+[0x00007fb1067672d0] InstanceKlass::link_methods(Thread*)+0xb0
+                             (malloc=2KB type=Code #1)
+
+[0x00007fb1067336d5] BasicHashtable<(MemoryType)1>::new_entry(unsigned int)+0x175
+[0x00007fb106567d24] ClassLoader::add_package(char const*, int, Thread*)+0x1d4
+[0x00007fb1065720ef] ClassLoaderExt::record_result(ClassLoaderExt::Context*, int, ClassPathEntry*, instanceKlassHandle, Thread*)+0xcf
+[0x00007fb10656b54f] ClassLoader::load_classfile(Symbol*, Thread*)+0x55f
+                             (malloc=2KB type=Class #5)
+
+[0x00007fb10681ab9a] JNIHandleBlock::allocate_block(Thread*)+0xaa
+[0x00007fb106ba41d3] JavaThread::run()+0x203
+[0x00007fb106a36c92] java_start(Thread*)+0x102
+                             (malloc=2KB type=Internal #7)
+
+[0x00007fb1067336d5] BasicHashtable<(MemoryType)1>::new_entry(unsigned int)+0x175
+[0x00007fb106733741] Hashtable<Klass*, (MemoryType)1>::new_entry(unsigned int, Klass*)+0x11
+[0x00007fb106908e9d] LoaderConstraintTable::add_entry(Symbol*, Klass*, Handle, Klass*, Handle)+0x6ad
+[0x00007fb106b68b91] SystemDictionary::check_signature_loaders(Symbol*, Handle, Handle, bool, Thread*)+0x261
+                             (malloc=2KB type=Class #1)
+
+[0x00007fb1063f3d7d] ChunkPool::allocate(unsigned long, AllocFailStrategy::AllocFailEnum)+0x10d
+[0x00007fb1063f2840] Arena::Arena(MemoryType)+0x30
+[0x00007fb106583604] CodeBuffer::create_patch_overflow()+0x184
+[0x00007fb106406d73] Label::add_patch_at(CodeBuffer*, int)+0x103
+                             (malloc=2KB type=Arena Chunk #2)
+
+[0x00007fb1063f3d7d] ChunkPool::allocate(unsigned long, AllocFailStrategy::AllocFailEnum)+0x10d
+[0x00007fb1063f2840] Arena::Arena(MemoryType)+0x30
+[0x00007fb106ba1460] JavaThread::JavaThread(void (*)(JavaThread*, Thread*), unsigned long)+0xf0
+[0x00007fb106822695] JVM_StartThread+0x105
+                             (malloc=2KB type=Arena Chunk #2)
+
+[0x00007fb1065b4382] CompileBroker::create_compile_task(CompileQueue*, int, methodHandle, int, int, methodHandle, int, char const*, bool)+0x452
+[0x00007fb1065b508f] CompileBroker::compile_method_base(methodHandle, int, int, methodHandle, int, char const*, Thread*)+0x9ef
+[0x00007fb1065b61e6] CompileBroker::compile_method(methodHandle, int, int, methodHandle, int, char const*, Thread*)+0x976
+[0x00007fb1063eac3b] AdvancedThresholdPolicy::submit_compile(methodHandle, int, CompLevel, JavaThread*)+0x11b
+                             (malloc=2KB type=Compiler #14)
+
+[0x00007fb1065b4394] CompileBroker::create_compile_task(CompileQueue*, int, methodHandle, int, int, methodHandle, int, char const*, bool)+0x464
+[0x00007fb1065b508f] CompileBroker::compile_method_base(methodHandle, int, int, methodHandle, int, char const*, Thread*)+0x9ef
+[0x00007fb1065b61e6] CompileBroker::compile_method(methodHandle, int, int, methodHandle, int, char const*, Thread*)+0x976
+[0x00007fb1063eac3b] AdvancedThresholdPolicy::submit_compile(methodHandle, int, CompLevel, JavaThread*)+0x11b
+                             (malloc=2KB type=Internal #14)
+
+[0x00007fb10681ab9a] JNIHandleBlock::allocate_block(Thread*)+0xaa
+[0x00007fb1067af38a] JavaCallWrapper::JavaCallWrapper(methodHandle, Handle, JavaValue*, Thread*)+0x6a
+[0x00007fb1067b1df0] JavaCalls::call_helper(JavaValue*, methodHandle*, JavaCallArguments*, Thread*)+0x8f0
+[0x00007fb10676e024] InstanceKlass::call_class_initializer_impl(instanceKlassHandle, Thread*)+0x104
+                             (malloc=2KB type=Internal #5)
+
+[0x00007fb106568b82] ClassLoader::create_class_path_entry(char const*, stat const*, bool, bool, Thread*)+0x252
+[0x00007fb1065693f2] ClassLoader::setup_search_path(char const*, bool)+0x262
+[0x00007fb10656ad4f] ClassLoader::initialize()+0x7ff
+[0x00007fb10675c0d7] init_globals()+0x37
+                             (malloc=1KB type=Class #6)
+
+[0x00007fb1066773dd] SymbolPropertyTable::SymbolPropertyTable(int)+0x12d
+[0x00007fb106b6e1ad] SystemDictionary::initialize(Thread*)+0xfd
+[0x00007fb106bbc3c8] Universe::genesis(Thread*)+0x3b8
+[0x00007fb106bbd42c] universe2_init()+0x2c
+                             (malloc=1KB type=Symbol #1)
+
+[0x00007fb106a8683b] PerfDataManager::create_long_variable(CounterNS, char const*, PerfData::Units, long, Thread*)+0x2b
+[0x00007fb1063ef7ba] ageTable::ageTable(bool)+0x11a
+[0x00007fb10661587f] DefNewGeneration::DefNewGeneration(ReservedSpace, unsigned long, int, char const*)+0x4f
+[0x00007fb106718a2d] GenerationSpec::init(ReservedSpace, int, GenRemSet*)+0x36d
+                             (malloc=1KB type=Internal #16)
+
+[0x00007fb106bf62c1] ReservedSpace::ReservedSpace(unsigned long, unsigned long, bool, char*, unsigned long)+0x91
+[0x00007fb1069b5c00] Metaspace::allocate_metaspace_compressed_klass_ptrs(char*, unsigned char*)+0x40
+[0x00007fb1069b6644] Metaspace::global_initialize()+0x554
+[0x00007fb106bbf5c1] universe_init()+0x61
+                             (reserved=1048576KB, committed=512KB)
+
+[0x00007fb106bf6f24] ReservedHeapSpace::ReservedHeapSpace(unsigned long, unsigned long, bool, char*)+0xb4
+[0x00007fb106bbec9f] Universe::reserve_heap(unsigned long, unsigned long)+0x38f
+[0x00007fb1067011f0] GenCollectedHeap::allocate(unsigned long, unsigned long*, int*, ReservedSpace*)+0x180
+[0x00007fb1067038a3] GenCollectedHeap::initialize()+0x113
+                             (reserved=253952KB, committed=16384KB)
+
+[0x00007fb106bf7487] ReservedCodeSpace::ReservedCodeSpace(unsigned long, unsigned long, bool)+0x77
+[0x00007fb106735d01] CodeHeap::reserve(unsigned long, unsigned long, unsigned long)+0xd1
+[0x00007fb10658773a] codeCache_init()+0x7a
+[0x00007fb10675c0dc] init_globals()+0x3c
+                             (reserved=245760KB, committed=2496KB)
+
+[0x00007fb106bf63dd] ReservedSpace::ReservedSpace(unsigned long, unsigned long, bool, char*, unsigned long)+0x1ad
+[0x00007fb1069ac78e] VirtualSpaceNode::VirtualSpaceNode(unsigned long)+0x16e
+[0x00007fb1069b216b] VirtualSpaceList::create_new_virtual_space(unsigned long) [clone .part.64]+0x3b
+[0x00007fb1069b66bb] Metaspace::global_initialize()+0x5cb
+                             (reserved=8192KB, committed=4352KB)
+
+[0x00007fb106a36c92] java_start(Thread*)+0x102
+                             (reserved=7184KB, committed=7184KB)
+
+[0x00007fb106bf60fa] ReservedSpace::ReservedSpace(unsigned long, unsigned long)+0x10a
+[0x00007fb106735e1e] CodeHeap::reserve(unsigned long, unsigned long, unsigned long)+0x1ee
+[0x00007fb10658773a] codeCache_init()+0x7a
+[0x00007fb10675c0dc] init_globals()+0x3c
+                             (reserved=3840KB, committed=40KB)
+
+[0x00007fb10641e559] attach_listener_thread_entry(JavaThread*, Thread*)+0x29
+[0x00007fb106ba3f9b] JavaThread::thread_main_inner()+0xdb
+[0x00007fb106ba422f] JavaThread::run()+0x25f
+[0x00007fb106a36c92] java_start(Thread*)+0x102
+                             (reserved=1028KB, committed=1028KB)
+
+[0x00007fb106c00d8d] VMThread::run()+0x1d
+[0x00007fb106a36c92] java_start(Thread*)+0x102
+                             (reserved=1024KB, committed=1024KB)
+
+[0x00007fb106ba1c1e] Threads::create_vm(JavaVMInitArgs*, bool*)+0x21e
+[0x00007fb1068019ff] JNI_CreateJavaVM+0x4f
+[0x00007fb1076eae74] JavaMain+0x84
+                             (reserved=1024KB, committed=1024KB)
+
+[0x00007fb106bf63dd] ReservedSpace::ReservedSpace(unsigned long, unsigned long, bool, char*, unsigned long)+0x1ad
+[0x00007fb1064ff334] CardTableModRefBS::initialize()+0xf4
+[0x00007fb10650161e] CardTableRS::CardTableRS(MemRegion, int)+0x8e
+[0x00007fb10658e57b] CollectorPolicy::create_rem_set(MemRegion, int)+0x3b
+                             (reserved=500KB, committed=40KB)
+
+[0x00007fb106bf60fa] ReservedSpace::ReservedSpace(unsigned long, unsigned long)+0x10a
+[0x00007fb10643d96c] BlockOffsetSharedArray::BlockOffsetSharedArray(MemRegion, unsigned long)+0x5c
+[0x00007fb106717526] CardGeneration::CardGeneration(ReservedSpace, unsigned long, int, GenRemSet*)+0x176
+[0x00007fb106b96542] TenuredGeneration::TenuredGeneration(ReservedSpace, unsigned long, int, GenRemSet*)+0x42
+                             (reserved=332KB, committed=24KB)
+
+[0x00007fb106a895a1] PerfMemory::create_memory_region(unsigned long)+0xa41
+[0x00007fb106a87faa] perfMemory_init()+0x4a
+[0x00007fb106ba1be5] Threads::create_vm(JavaVMInitArgs*, bool*)+0x1e5
+[0x00007fb1068019ff] JNI_CreateJavaVM+0x4f
+                             (reserved=32KB, committed=32KB)
+
