@@ -1,8 +1,0 @@
-spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306/mybatis_plus
-    username: root
-    password: 1qw2!QW@
-    initialization-mode: always
-    schema: classpath:db/schema-h2.sql
-    data: classpath:db/data-h2.sql

@@ -1,2 +1,2 @@
 * xref:index.adoc[]
-* xref:servlet.adoc[]
+* xref:version.adoc[]

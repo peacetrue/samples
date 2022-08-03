@@ -18,6 +18,7 @@
 *.zip
 *.tar.gz
 *.rar
+libs
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
@@ -31,9 +32,8 @@ hs_err_pid*
 
 .gradle
 
-docs/antora/modules/ROOT/attachment
-
 # Project exclude paths
 **/target
 **/nacos
 **/build
+.DS_Store
