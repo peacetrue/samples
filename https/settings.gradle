@@ -1,0 +1,3 @@
+rootProject.name = "https"
+include("jdk")
+include("client")

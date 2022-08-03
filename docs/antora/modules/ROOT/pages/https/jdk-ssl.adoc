@@ -1,0 +1,95 @@
+= JDK SSL/TLS
+
+本文简单介绍 JDK 的 SSL/TLS 体系。
+
+== 类结构
+
+image::package-ssl.png[]
+
+在 Socket 和 ServerSocket 的基础上扩展出 SSLSocket 和 SSLServerSocket，同时提供对应的工厂类 SSLSocketFactory 和 SSLServerSocketFactory。对于证书的检查会用到 X509TrustManager，对于信息的解密会用到 X509KeyManager。SSLContext 提供了获取 SSLSocketFactory 和 SSLServerSocketFactory 的方法。
+
+//System.getProperty("javax.net.ssl.trustStore")
+
+
+//JDK 中有 keyStore 和 trustStore 的概念。
+
+== JDK 证书库
+
+.查看 JDK 证书目录
+[source{source_options},bash]
+----
+cd $JAVA_HOME/Contents/Home/jre/lib/security
+ls -la
+
+total 288
+drwxrwxr-x   10 root  wheel    320 Jun  9  2015 .
+drwxrwxr-x  100 root  wheel   3200 Jun  9  2015 ..
+-rw-rw-r--    1 root  wheel   3026 Jun  9  2015 US_export_policy.jar
+-rw-rw-r--    1 root  wheel   4054 Jun  9  2015 blacklist
+-rw-rw-r--    1 root  wheel   1188 Jun  9  2015 blacklisted.certs
+-rw-rw-r--    1 root  wheel  99954 Jun  9  2015 cacerts
+-rw-rw-r--    1 root  wheel   2466 Jun  9  2015 java.policy
+-rw-rw-r--    1 root  wheel  23711 Jun  9  2015 java.security
+-rw-rw-r--    1 root  wheel   3527 Jun  9  2015 local_policy.jar
+-rw-rw-r--    1 root  wheel      0 Jun  9  2015 trusted.libraries
+----
+
+.查看 ca 证书
+[source{source_options},bash]
+----
+keytool -list -keystore cacerts
+
+输入密钥库口令: 默认密码是 changeit
+
+密钥库类型: JKS
+密钥库提供方: SUN
+
+您的密钥库包含 93 个条目
+
+digicertassuredidrootca, 2008-4-16, trustedCertEntry,
+证书指纹 (SHA1): 05:63:B8:63:0D:62:D7:5A:BB:C8:AB:1E:4B:DF:B5:A8:99:B2:4D:43
+comodorsaca, 2015-5-13, trustedCertEntry,
+证书指纹 (SHA1): AF:E5:D2:44:A8:D1:19:42:30:FF:47:9F:E2:F8:97:BB:CD:7A:8C:B4
+......
+----
+
+.导入 localhost.crt 证书
+[source{source_options},bash]
+----
+keytool -importcert -file localhost.crt -alias localhost -keystore $JAVA_HOME/jre/lib/security/cacerts
+----
+
+== javax.net.debug
+
+`System.setProperty("javax.net.debug", "ssl,handshake");`
+
+.SSLContextImpl
+[source{source_options},java]
+----
+private static KeyManager[] getKeyManagers() throws Exception {
+    ...
+    final String defaultKeyStore = props.get("keyStore");
+    String defaultKeyStoreType = props.get("keyStoreType");
+    String defaultKeyStoreProvider = props.get("keyStoreProvider");
+    if (debug != null && Debug.isOn("defaultctx")) {
+        System.out.println("keyStore is : " + defaultKeyStore);
+        System.out.println("keyStore type is : " + defaultKeyStoreType);
+        System.out.println("keyStore provider is : " + defaultKeyStoreProvider);
+    }
+    ...
+}
+----
+
+.TrustManagerFactoryImpl
+[source{source_options},java]
+----
+static KeyStore getCacertsKeyStore(String dbgname) throws Exception
+    ...
+   if (debug != null && Debug.isOn(dbgname)) {
+        System.out.println("trustStore is: " + storeFileName);
+        System.out.println("trustStore type is : " + defaultTrustStoreType);
+        System.out.println("trustStore provider is : " + defaultTrustStoreProvider);
+   }
+    ...
+}
+----

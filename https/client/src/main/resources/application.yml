@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: sample-https-tomcat-httpclient
+  thymeleaf:
+    cache: false
+
+server:
+  ssl:
+    key-store: classpath:server-key.jks
+    key-store-type: jks
+    key-store-password: peacetrue
+    key-alias: server
+    key-password: peacetrue
+    trust-store: classpath:server-trust.jks
+    trust-store-password: peacetrue
+    trust-store-type: jks
+  port: 8443
+
+spring.profiles.group.default: dev,server
+
+---
+spring.config.activate.on-profile: dev
+logging:
+  level:
+    root: info
+    org.springframework: debug
+    com.github.peacetrue: trace
+
+---
+spring.config.activate.on-profile: test
+logging:
+  level:
+    root: info
+
+---
+spring.config.activate.on-profile: client-auth
+server:
+  ssl:
+    client-auth: need

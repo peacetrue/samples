@@ -1,0 +1,56 @@
+= 示例样章
+
+本文通过具体示例介绍在使用 HTTPS 时可能遭遇的各种异常。
+
+示例是一个简单的 WEB 应用，启用了 HTTPS 协议，包含浏览器场景测试的首页和客户端场景测试的回声接口。
+
+* sample-https-jdk 使用 jdk 提供的原生方法配置证书。
+* sample-https-client 使用 `org.apache.httpcomponents:httpclient:4.5.13` 提供的方法配置证书。
+
+== 准备证书
+
+.生成 demo-key.jks、demo.crt、demo-trust.jks
+[source{source_options},bash]
+----
+keytool -genkeypair -alias demo -keyalg RSA -keysize 4096 -storetype JKS -keystore demo-key.jks -validity 3650 -storepass peacetrue -dname "CN=demo, OU=demo, O=demo, L=demo, ST=demo, C=demo"
+keytool -export -keystore demo-key.jks -alias demo -file demo.crt -storepass peacetrue
+keytool -import -alias demo -file demo.crt  -keystore demo-trust.jks -storepass peacetrue
+----
+
+.生成 localhost-key.jks、localhost.crt、localhost-trust.jks
+[source{source_options},bash]
+----
+keytool -genkeypair -alias localhost -keyalg RSA -keysize 4096 -storetype JKS -keystore localhost-key.jks -validity 3650 -storepass peacetrue -dname "CN=localhost, OU=localhost, O=localhost, L=localhost, ST=localhost, C=localhost"
+keytool -export -keystore localhost-key.jks -alias localhost -file localhost.crt -storepass peacetrue
+keytool -import -alias localhost -file localhost.crt  -keystore localhost-trust.jks -storepass peacetrue
+----
+
+.生成 server-key.jks、server.crt、server-truststore.jks
+[source{source_options},bash]
+----
+keytool -genkeypair -alias server -keyalg RSA -keysize 4096 -storetype JKS -keystore server-key.jks -validity 3650 -storepass peacetrue -dname "CN=localhost, OU=localhost, O=localhost, L=localhost, ST=localhost, C=localhost"
+keytool -export -keystore server-key.jks -alias server -file server.crt -storepass peacetrue
+keytool -import -alias client -file client.crt  -keystore server-trust.jks -storepass peacetrue
+----
+
+.生成 client.jks、client.crt、client-truststore.jks
+[source{source_options},bash]
+----
+keytool -genkeypair -alias client -keyalg RSA -keysize 4096 -storetype JKS -keystore client-key.jks -validity 3650 -storepass peacetrue -dname "CN=localhost, OU=localhost, O=localhost, L=localhost, ST=localhost, C=localhost"
+keytool -export -keystore client-key.jks -alias client -file client.crt -storepass peacetrue
+keytool -import -alias server -file server.crt  -keystore client-trust.jks -storepass peacetrue
+----
+
+== 异常解析
+
+=== No name matching localhost found
+
+证书的 cn 与域名不匹配：
+
+image::image-2021-08-21-10-26-41-280.png[]
+
+生成证书时，指定 cn=localhost。
+
+=== unable to find valid certification path to requested target
+
+在 trustStore 中找不到匹配的证书，需要将证书导入到 trustStore 中。

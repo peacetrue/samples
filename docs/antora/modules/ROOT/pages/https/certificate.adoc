@@ -1,0 +1,65 @@
+= 证书
+
+== 自签证书
+
+.生成 JKS 存储库
+[source{source_options},bash]
+----
+keytool -genkeypair -alias sample -keyalg RSA -keysize 4096 -storetype JKS -keystore sample.jks -validity 3650 -storepass peacetrue
+----
+
+.参数含义
+. genkeypair: 生成密钥对；
+. alias：我们正在生成的条目的别名；
+. keyalg：生成密钥对的密码算法；
+. keysize：密钥的大小；
+. storetype：密钥库的类型；
+. keystore：密钥库的名称；
+. validity：有效天数；
+. storepass：密钥库的密码。
+
+一个 keystore 中可以包含多个 key，keystore 和 key 有各自独立的密码。
+
+
+.查看证书内容
+[source{source_options},bash]
+----
+keytool -list -v -keystore sample.jks
+----
+
+.提取证书
+[source{source_options},bash]
+----
+keytool -export -keystore sample.jks -alias sample -file sample.crt
+----
+
+
+== 域名证书
+
+*peacetrue.cn* 域名证书示例：
+
+----
+├── Apache
+│   ├── 1_root_bundle.crt
+│   ├── 2_peacetrue.cn.crt
+│   └── 3_peacetrue.cn.key
+├── IIS
+│   └── peacetrue.cn.pfx
+├── Nginx
+│   ├── 1_peacetrue.cn_bundle.crt
+│   └── 2_peacetrue.cn.key
+├── Tomcat
+│   └── peacetrue.cn.jks
+├── peacetrue.cn.csr
+├── peacetrue.cn.key
+├── peacetrue.cn.pem
+----
+
+各种不同类型的文件，具体含义是什么？
+
+. DER，文件是二进制格式，只保存证书，不保存私钥。
+. PEM，一般是文本格式，可保存证书，可保存私钥。
+. CRT，可以是二进制格式，可以是文本格式，与 .DER 格式相同，不保存私钥。
+. PFX，二进制格式，同时包含证书和私钥，一般有密码保护。
+. JKS，二进制格式，同时包含证书和私钥，一般有密码保护。
+
