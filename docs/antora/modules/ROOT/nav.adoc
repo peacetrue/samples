@@ -1,3 +1,2 @@
 * xref:index.adoc[]
-* 版本
-** xref:version/antora.adoc[]
+* xref:branch.adoc[]
