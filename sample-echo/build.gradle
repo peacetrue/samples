@@ -1,0 +1,18 @@
+plugins {
+    id "com.github.peacetrue.gradle.build-convention" version "${peaceGradleVersion}${tailSnapshot}" apply(false)
+}
+
+group "com.github.peacetrue.sample"
+version "${sampleEchoVersion}${tailSnapshot}"
+description "回声服务"
+apply plugin: "com.github.peacetrue.gradle.build-convention"
+
+dependencies {
+    implementation project(":sample-echo-api")
+    implementation project(":sample-echo-impl")
+    implementation project(":sample-echo-controller")
+}
+
+subprojects {
+    ext.isPublishDisabled = false
+}
