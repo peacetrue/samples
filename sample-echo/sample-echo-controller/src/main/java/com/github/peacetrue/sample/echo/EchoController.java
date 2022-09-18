@@ -20,8 +20,8 @@ public class EchoController {
     private EchoService echoService;
 
     @GetMapping
-    public String echo(@Nullable String input) {
-        return echoService.echo(input);
+    public String echo(@Nullable String input, @Nullable Integer sleepTime) {
+        return echoService.echo(input, sleepTime);
     }
 
 }

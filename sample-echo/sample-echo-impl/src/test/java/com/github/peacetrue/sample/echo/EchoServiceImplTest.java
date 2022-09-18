@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.concurrent.CountDownLatch;
+
 /**
  * @author peace
  **/
@@ -23,5 +25,6 @@ class EchoServiceImplTest {
         Assertions.assertNotNull(echoService.echo(null));
         String input = RandomStringUtils.random(10);
         Assertions.assertEquals(input, echoService.echo(input));
+        Assertions.assertEquals(input, echoService.echo(input, 5));
     }
 }

@@ -36,5 +36,9 @@ class EchoControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$").value(input))
         ;
+        this.mockMvc.perform(get("/echo?input={0}&sleepTime={1}", input, 2))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$").value(input))
+        ;
     }
 }
