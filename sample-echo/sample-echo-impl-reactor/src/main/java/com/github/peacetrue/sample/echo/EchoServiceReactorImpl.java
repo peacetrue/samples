@@ -1,6 +1,7 @@
 package com.github.peacetrue.sample.echo;
 
 import lombok.extern.slf4j.Slf4j;
+import reactor.core.publisher.Mono;
 
 import javax.annotation.Nullable;
 import java.util.UUID;
@@ -11,10 +12,10 @@ import java.util.UUID;
  * @author peace
  **/
 @Slf4j
-public class EchoServiceImpl implements EchoService {
+public class EchoServiceReactorImpl implements EchoServiceReactor {
     @Override
-    public String echo(@Nullable String input) {
+    public Mono<String> echo(@Nullable String input) {
         log.info("echo: {}", input);
-        return input == null ? UUID.randomUUID().toString() : input;
+        return Mono.just(input == null ? UUID.randomUUID().toString() : input);
     }
 }

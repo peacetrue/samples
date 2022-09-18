@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
  **/
 @AutoConfigureOrder(10)
 @Configuration
-public class EchoServiceAutoConfiguration {
+public class EchoServiceReactorAutoConfiguration {
 
     /**
      * 构造回声服务实现。
@@ -21,8 +21,8 @@ public class EchoServiceAutoConfiguration {
      */
     @Bean
     @ConditionalOnMissingBean
-    public EchoServiceImpl echoService() {
-        return new EchoServiceImpl();
+    public EchoServiceReactorImpl echoService() {
+        return new EchoServiceReactorImpl();
     }
 
 }

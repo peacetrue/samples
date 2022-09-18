@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
  **/
 @AutoConfigureOrder(20)
 @Configuration
-public class EchoControllerAutoConfiguration {
+public class EchoControllerReactorAutoConfiguration {
 
     /**
      * 构造回声服务控制器。
@@ -23,9 +23,9 @@ public class EchoControllerAutoConfiguration {
      */
     @Bean
     @ConditionalOnMissingBean
-    @ConditionalOnBean(EchoService.class)
-    public EchoController echoController(EchoService echoService) {
-        return new EchoController(echoService);
+    @ConditionalOnBean(EchoServiceReactor.class)
+    public EchoControllerReactor echoControllerReactor(EchoServiceReactor echoService) {
+        return new EchoControllerReactor(echoService);
     }
 
 }

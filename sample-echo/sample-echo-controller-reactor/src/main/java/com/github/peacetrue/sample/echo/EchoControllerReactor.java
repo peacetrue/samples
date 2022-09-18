@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import reactor.core.publisher.Mono;
 
 import javax.annotation.Nullable;
 
@@ -15,13 +16,13 @@ import javax.annotation.Nullable;
 @ResponseBody
 @RequestMapping("/echo")
 @AllArgsConstructor
-public class EchoController {
+public class EchoControllerReactor {
 
-    private EchoService echoService;
+    private EchoServiceReactor echoServiceReactor;
 
     @GetMapping
-    public String echo(@Nullable String input) {
-        return echoService.echo(input);
+    public Mono<String> echo(@Nullable String input) {
+        return echoServiceReactor.echo(input);
     }
 
 }

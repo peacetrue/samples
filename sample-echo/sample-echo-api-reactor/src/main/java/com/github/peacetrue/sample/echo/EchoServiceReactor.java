@@ -1,5 +1,7 @@
 package com.github.peacetrue.sample.echo;
 
+import reactor.core.publisher.Mono;
+
 import javax.annotation.Nullable;
 
 /**
@@ -7,7 +9,7 @@ import javax.annotation.Nullable;
  *
  * @author peace
  **/
-public interface EchoService {
+public interface EchoServiceReactor {
 
     /**
      * 返回输入值，{@code null} 时，随机生成一个值。
@@ -15,5 +17,5 @@ public interface EchoService {
      * @param input 输入值
      * @return 输出值
      */
-    String echo(@Nullable String input);
+    Mono<String> echo(@Nullable String input);
 }
