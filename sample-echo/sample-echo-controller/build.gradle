@@ -1,7 +1,7 @@
 description "回声服务实现"
 
 dependencies {
-    implementation project(":sample-echo-api")
+    api project(":sample-echo-api")
     compileOnly "ch.qos.logback:logback-classic"
     compileOnly "org.springframework:spring-web"
     compileOnly "org.springframework.boot:spring-boot-autoconfigure"
